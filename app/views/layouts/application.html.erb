@@ -1,16 +1,34 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>RailsTutorial</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<html lang="vi">
+<head>
+  <title><%= content_for?(:title) ? yield(:title) : t("app_name") %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "layout", media: "all", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "https://code.jquery.com/jquery-3.6.0.min.js", defer: true %>
+  <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css", media: "all" %>
 
-  <body>
-    <%= yield %>
-  </body>
+
+  <%= javascript_importmap_tags %>
+</head>
+<body>
+  <%= render "layouts/sidebar" %>
+
+  <div class="main-area">
+    <%= render "layouts/header" %>
+
+    <% flash.each do |type, msg| %>
+      <div class="alert alert-<%= type %>"><%= msg %></div>
+    <% end %>
+
+    <div class="content" id="content-area">
+      <%= yield %>
+    </div>
+
+    <%= render "layouts/footer" %>
+  </div>
+</body>
 </html>
