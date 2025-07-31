@@ -1,0 +1,11 @@
+<div class="header">
+  <i id="toggle-icon" class="fas fa-times"></i>
+  <h1><%= t "header.title" %></h1>
+  <div id="current-language">
+    <%= I18n.locale == :en ? t("header.english") : t("header.vietnamese") %>
+  </div>
+  <ul id="language-dropdown">
+    <li><%= link_to t("header.english"), locale:"en" %></li>
+    <li><%= link_to t("header.vietnamese"), locale:"vi" %></li>
+  </ul>
+</div>

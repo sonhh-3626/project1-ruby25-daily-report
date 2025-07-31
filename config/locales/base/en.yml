@@ -1,0 +1,22 @@
+en:
+  app_name: "Daily Report Management"
+
+  header:
+    english: "English"
+    vietnamese: "Vietnamese"
+    title: "Daily Report Management"
+
+  footer:
+    copy_right:  "2025 Sun asterisk. All rights reserved."
+
+  dashboard:
+    welcome: "Welcome to Daily Report Management"
+    content: "This is dashboard page"
+
+  help:
+    content: "This is help page"
+
+  nav_items:
+    dashboard: "Dashboard"
+    help: "Help"
+    departments: "Departments"
