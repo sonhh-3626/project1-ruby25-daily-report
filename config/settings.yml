@@ -1,0 +1,9 @@
+user_role:
+  user: 0
+  manager: 1
+  admin: 2
+
+daily_report_status:
+  pending: 0
+  read: 1
+  commented: 2
