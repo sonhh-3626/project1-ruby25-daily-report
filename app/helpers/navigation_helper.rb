@@ -8,6 +8,12 @@ module NavigationHelper
         roles: %w(admin manager user)
       },
       {
+        label: t("nav_items.departments"),
+        path: admin_departments_path,
+        icon: "home",
+        roles: %w(admin)
+      },
+      {
         label: t("nav_items.help"),
         path: help_path,
         icon: "handshake-angle",

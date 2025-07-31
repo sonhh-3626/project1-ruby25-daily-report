@@ -7,3 +7,6 @@ daily_report_status:
   pending: 0
   read: 1
   commented: 2
+
+ITEMS_PER_PAGE_10: 10
+MIN_LENGTH_DESCRIPTION_10: 10
