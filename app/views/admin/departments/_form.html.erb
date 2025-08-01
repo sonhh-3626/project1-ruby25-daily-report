@@ -1,0 +1,17 @@
+<%= form_with(model: [:admin, department], data: {turbo: false}) do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <div class="mb-3">
+    <%= f.label :name, t("departments.form.name"), class: "form-label" %>
+    <%= f.text_field :name, class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :description, t("departments.form.description"), class: "form-label" %>
+    <%= f.text_area :description, rows: 4, class: "form-control" %>
+  </div>
+
+  <%= f.submit t(department.persisted? ? "departments.edit.submit" : "departments.new.submit"), class: "btn btn-primary" %>
+
+  <%= link_to t("departments.edit.cancel"), department.persisted? ? admin_department_path(department) : admin_departments_path, class: "btn btn-secondary ms-2" %>
+<% end %>

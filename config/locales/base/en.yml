@@ -1,22 +1,32 @@
 en:
   app_name: "Daily Report Management"
 
+  date:
+    formats:
+      default: "%Y-%m-%d"
+
   header:
     english: "English"
     vietnamese: "Vietnamese"
     title: "Daily Report Management"
 
   footer:
-    copy_right:  "2025 Sun asterisk. All rights reserved."
+    copy_right: "2025 Sun Asterisk. All rights reserved."
 
   dashboard:
     welcome: "Welcome to Daily Report Management"
-    content: "This is dashboard page"
+    content: "This is the dashboard page"
 
   help:
-    content: "This is help page"
+    content: "This is the help page"
 
   nav_items:
     dashboard: "Dashboard"
     help: "Help"
     departments: "Departments"
+
+  errors_forms:
+    messages:
+      x_errors:
+        one: "The form contains 1 error."
+        other: "The form contains %{count} errors."

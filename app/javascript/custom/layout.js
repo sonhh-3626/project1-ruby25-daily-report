@@ -7,17 +7,21 @@ function setupSidebar() {
 
   if ($toggleButton.length === 0 || $sidebar.length === 0 || $mainArea.length === 0) return;
 
-  $toggleButton.on('click', function () {
-    isCollapsed = !isCollapsed;
+  let isCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
 
+  const applySidebarState = () => {
     $sidebar.toggleClass('collapsed', isCollapsed);
     $mainArea.toggleClass('expanded', isCollapsed);
     $toggleButton.attr('class', isCollapsed ? 'fas fa-bars menu-toggle' : 'fas fa-times menu-toggle');
-  });
+  };
 
-  $sidebar.toggleClass('collapsed', isCollapsed);
-  $mainArea.toggleClass('expanded', isCollapsed);
-  $toggleButton.attr('class', isCollapsed ? 'fas fa-bars menu-toggle' : 'fas fa-times menu-toggle');
+  applySidebarState();
+
+  $toggleButton.on('click', function () {
+    isCollapsed = !isCollapsed;
+    localStorage.setItem('sidebarCollapsed', isCollapsed);
+    applySidebarState();
+  });
 }
 
 function setupNavItems() {

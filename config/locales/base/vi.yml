@@ -1,6 +1,10 @@
 vi:
   app_name: "Daily Report Management"
 
+  date:
+    formats:
+      default: "%d-%m-%Y"
+
   header:
     english: "Tiếng Anh"
     vietnamese: "Tiếng Việt"
@@ -20,3 +24,9 @@ vi:
     dashboard: "Dashboard"
     help: "Trợ giúp"
     departments: "Danh sách bộ phận"
+
+  errors_forms:
+    messages:
+      x_errors:
+        one: "The form contains 1 error."
+        other: "The form contains %{count} errors."

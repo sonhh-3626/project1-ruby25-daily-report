@@ -52,6 +52,7 @@ gem "bootstrap-sass", "3.4.1"
 gem "config"
 gem "i18n-js", "<= 3.9.2"
 gem "jquery-rails"
+gem "pagy"
 gem "rails-i18n"
 
 group :development, :test do

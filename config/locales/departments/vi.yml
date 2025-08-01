@@ -1,0 +1,45 @@
+vi:
+  departments:
+    index:
+      title: "Danh sách bộ phận"
+      search_label: "Tìm kiếm theo tên bộ phận"
+      search_placeholder: "Tìm theo tên bộ phận"
+      add_button: "Thêm bộ phận mới"
+      table:
+        name: "Tên bộ phận"
+        description: "Mô tả"
+        staff_count: "Số lượng nhân viên"
+        created_at: "Ngày tạo"
+        updated_at: "Ngày cập nhật"
+        actions: "Hành động"
+        no_result: "Không tìm thấy bộ phận nào."
+      show: "Xem"
+      edit: "Sửa"
+      delete: "Xóa"
+      confirm_delete: "Bạn có chắc muốn xóa bộ phận này?"
+    edit:
+      title: "Chỉnh sửa bộ phận"
+      submit: "Lưu thay đổi"
+      cancel: "Hủy"
+      updated_successfully: "Cập nhật thông tin bộ phận thành công."
+    new:
+      title: "Thêm bộ phận mới"
+      submit: "Tạo mới"
+      cancel: "Hủy"
+      created_successfully: "Tạo bộ phận thành công."
+    show:
+      title: "Chi tiết bộ phận"
+      description: "Mô tả"
+      created_at: "Ngày tạo"
+      updated_at: "Ngày cập nhật"
+      no_description: "Không có"
+      back: "← Quay lại danh sách"
+    destroy:
+      success: "Xóa bộ phận thành công"
+      fail: "Xóa bộ phận thất bại"
+    form:
+      name: "Tên bộ phận"
+      description: "Mô tả"
+    errors:
+      not_found: "Không tìm thấy bộ phận"
+      has_users: "Không được phép xóa bộ phận vẫn còn nhân viên!"
