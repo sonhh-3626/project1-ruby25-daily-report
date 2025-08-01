@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_07_30_070349) do
+ActiveRecord::Schema[7.0].define(version: 2025_07_31_170339) do
   create_table "daily_reports", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "owner_id", null: false
     t.bigint "receiver_id"
@@ -36,6 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2025_07_30_070349) do
     t.datetime "updated_at", null: false
     t.bigint "manager_id"
     t.index ["manager_id"], name: "index_departments_on_manager_id"
+    t.index ["name"], name: "index_departments_on_name", unique: true
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
