@@ -1,0 +1,32 @@
+vi:
+  app_name: "Daily Report Management"
+
+  date:
+    formats:
+      default: "%d-%m-%Y"
+
+  header:
+    english: "Tiếng Anh"
+    vietnamese: "Tiếng Việt"
+    title: "Quản lý Báo cáo hàng ngày"
+
+  footer:
+    copy_right:  "2025 Sun asterisk. All rights reserved."
+
+  dashboard:
+    welcome: "Chào mừng đến với Quản lý Báo cáo hàng ngày"
+    content: "Đây là trang bảng điều khiển"
+
+  help:
+    content: "Đây là trang trợ giúp"
+
+  nav_items:
+    dashboard: "Dashboard"
+    help: "Trợ giúp"
+    departments: "Danh sách bộ phận"
+
+  errors_forms:
+    messages:
+      x_errors:
+        one: "The form contains 1 error."
+        other: "The form contains %{count} errors."

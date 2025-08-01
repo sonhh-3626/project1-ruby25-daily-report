@@ -10,7 +10,23 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
+  <%= javascript_importmap_tags %>
+</head>
+<body>
+  <%= render "layouts/sidebar" %>
+
+  <div class="main-area">
+    <%= render "layouts/header" %>
+
+    <% flash.each do |type, msg| %>
+      <div class="alert alert-<%= type %>"><%= msg %></div>
+    <% end %>
+
+    <div class="content" id="content-area">
+      <%= yield %>
+    </div>
+
+    <%= render "layouts/footer" %>
+  </div>
+</body>
 </html>
