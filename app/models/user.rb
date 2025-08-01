@@ -14,4 +14,10 @@ class User < ApplicationRecord
            dependent: :nullify
 
   enum role: Settings.user_role.to_h
+
+  USER_PARAMS = %w(name email role department_id).freeze
+
+  scope :filter_by_role, ->(role){where(role:) if role.present?}
+  scope :filter_by_department, ->(department_id){where(department_id:) if department_id.present?}
+  scope :filter_by_email, ->(email){where("email LIKE ?", "%#{email}%") if email.present?}
 end
