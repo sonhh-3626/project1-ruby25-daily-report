@@ -1,0 +1,21 @@
+<%= form_with model: @user, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :name, t("users.form.name") %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email, t("users.form.email") %>
+    <%= f.email_field :email, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :role, t("users.form.role") %>
+    <%= f.select :role, ["user", "manager"].map { |r| [r.humanize, r] }, {}, class: "form-control" %>
+  </div>
+
+  <%= f.select :department_id, department_options_for_edit, { include_blank: false }, class: "form-control" %>
+
+  <%= f.submit t("users.form.save"), class: "btn btn-primary" %>
+  <%= link_to t("edit.cancel"), users_path, class: "btn btn-secondary ms-2" %>
+  <% end %>

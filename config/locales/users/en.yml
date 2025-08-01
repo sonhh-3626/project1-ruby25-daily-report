@@ -1,0 +1,32 @@
+en:
+  users:
+    index:
+      title: "User List"
+      search_placeholder: "Search by email"
+      table:
+        name: "Name"
+        email: "Email"
+        role: "Role"
+        department: "Department"
+        actions: "Actions"
+        no_result: "No users found."
+      filter:
+        role: "Role"
+        department: "Department"
+        all: "All"
+        submit: "Filter"
+        reset: "Reset"
+    edit:
+      title: "Update User"
+      updated_successfully: "Updated successfully!"
+    form:
+      name: "Name"
+      email: "Email"
+      role: "Role"
+      save: "Save Changes"
+      no_department: "-- No Department --"
+    roles:
+      manager: "Manager"
+      user: "User"
+    errors:
+      not_found: "User not found."
