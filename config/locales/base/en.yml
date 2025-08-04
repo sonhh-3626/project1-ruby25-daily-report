@@ -30,3 +30,15 @@ en:
       x_errors:
         one: "The form contains 1 error."
         other: "The form contains %{count} errors."
+
+  session:
+    login:
+      title: "Login"
+      email_placeholder: "Your company email"
+      password_placeholder: "Password"
+      remember_me: "Remember me"
+      submit_btn: "Log in"
+      invalid: "Email hoặc mật khẩu không chính xác!"
+      success: "Login successfully!"
+    logout:
+      successfully: "Logout successfully!"

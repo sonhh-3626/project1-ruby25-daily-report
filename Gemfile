@@ -48,6 +48,7 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html]
 # gem "image_processing", "~> 1.2"
 
+gem "bcrypt", "3.1.18"
 gem "bootstrap-sass", "3.4.1"
 gem "config"
 gem "i18n-js", "<= 3.9.2"

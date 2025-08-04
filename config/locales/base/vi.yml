@@ -30,3 +30,15 @@ vi:
       x_errors:
         one: "The form contains 1 error."
         other: "The form contains %{count} errors."
+
+  session:
+    login:
+      title: "Đăng nhập"
+      email_placeholder: "Email công ty của bạn"
+      password_placeholder: "Mật khẩu"
+      remember_me: "Ghi nhớ đăng nhập"
+      submit_btn: "Đăng nhập"
+      invalid: "Email hoặc mật khẩu không chính xác!"
+      success: "Đăng nhập thành công!"
+    logout:
+      successfully: "Logout thành công!"

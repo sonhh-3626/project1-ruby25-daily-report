@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include Pagy::Backend
+  include SessionsHelper
 
   before_action :set_locale
 
@@ -15,5 +16,15 @@ class ApplicationController < ActionController::Base
 
   def default_url_options
     {locale: I18n.locale}
+  end
+
+  def logged_in_user
+    unlogged_in_notification unless logged_in?
+  end
+
+  def unlogged_in_notification
+    store_location
+    flash[:danger] = t "users.errors.unlogged_in"
+    redirect_to login_url, status: :see_other
   end
 end

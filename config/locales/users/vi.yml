@@ -30,3 +30,5 @@ vi:
       user: "Nhân viên"
     errors:
       not_found: "Không tìm thấy người dùng."
+      invalid_email: "Email không hợp lệ."
+      unlogged_in: "Chưa đăng nhập."

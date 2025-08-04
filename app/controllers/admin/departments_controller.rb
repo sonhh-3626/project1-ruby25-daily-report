@@ -1,4 +1,5 @@
 class Admin::DepartmentsController < ApplicationController
+  before_action :logged_in_user
   before_action :load_department, only: %i(show edit update destroy)
   before_action :check_dependency_destroy_department, only: :destroy
 

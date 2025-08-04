@@ -5,11 +5,19 @@
     </div>
   <% end %>
 
-  <% nav_items_for(:admin).each do |item| %>
-    <% active_class = current_page?(item[:path]) ? 'active' : '' %>
-    <%= link_to item[:path], class: "nav-item #{active_class}" do %>
-      <span class="nav-icon"><i class="fas fa-<%= item[:icon] %>"></i></span>
-      <span class="nav-text"><%= item[:label] %></span>
+  <% nav_items_for(current_user.role).each do |item| %>
+    <% active_class = current_page?(item[:path]) ? "active" : "" %>
+
+    <% if item[:label] == t("nav_items.logout") %>
+      <%= link_to logout_path, data: { "turbo-method": :delete }, class: "nav-item" do %>
+        <span class="nav-icon"><i class="fas fa-<%= item[:icon] %>"></i></span>
+        <span class="nav-text"><%= item[:label] %></span>
+      <% end %>
+    <% else %>
+      <%= link_to item[:path], class: "nav-item #{active_class}" do %>
+        <span class="nav-icon"><i class="fas fa-<%= item[:icon] %>"></i></span>
+        <span class="nav-text"><%= item[:label] %></span>
+      <% end %>
     <% end %>
   <% end %>
 </div>
