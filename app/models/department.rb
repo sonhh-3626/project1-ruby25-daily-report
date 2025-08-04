@@ -13,5 +13,7 @@ class Department < ApplicationRecord
 
   scope :order_by_latest, ->{order(created_at: :desc)}
   scope :order_by_name, ->{order(name: :desc)}
-  scope :search_by_name, ->(query){where("name LIKE ?", "%#{query.strip}%")}
+  scope :search_by_name, lambda {|query|
+    where("name LIKE ?", "%#{query.strip}%") if query.present?
+  }
 end

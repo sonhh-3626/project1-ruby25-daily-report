@@ -1,0 +1,32 @@
+vi:
+  users:
+    index:
+      title: "Danh sách người dùng"
+      search_placeholder: "Tìm kiếm theo email"
+      table:
+        name: "Tên"
+        email: "Email"
+        role: "Vai trò"
+        department: "Bộ phận"
+        actions: "Hành động"
+        no_result: "Không tìm thấy người dùng nào."
+      filter:
+        role: "Vai trò"
+        department: "Bộ phận"
+        all: "Tất cả"
+        submit: "Lọc"
+        reset: "Đặt lại"
+    edit:
+      title: "Cập nhật người dùng"
+      updated_successfully: "Cập nhật thành công!"
+    form:
+      name: "Tên"
+      email: "Email"
+      role: "Vai trò"
+      save: "Lưu thay đổi"
+      no_department: "-- Không thuộc bộ phận nào --"
+    roles:
+      manager: "Quản lý"
+      user: "Nhân viên"
+    errors:
+      not_found: "Không tìm thấy người dùng."

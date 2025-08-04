@@ -1,0 +1,17 @@
+<tr>
+  <td><%= user.name %></td>
+  <td><%= user.email %></td>
+  <td>
+    <% if user.manager? %>
+      <%= t "users.roles.manager" %>
+    <% else %>
+      <%= t "users.roles.user" %>
+    <% end %>
+  </td>
+  <td><%= user.department_name if user.department.present? %></td>
+  <td>
+    <%= link_to edit_user_path(user), class: "btn btn-sm btn-outline-warning", title: t("users.index.edit") do %>
+      <i class="fas fa-edit"></i>
+    <% end %>
+  </td>
+</tr>

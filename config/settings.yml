@@ -10,3 +10,7 @@ daily_report_status:
 
 ITEMS_PER_PAGE_10: 10
 MIN_LENGTH_DESCRIPTION_10: 10
+
+FILTER_ROLE:
+  - user
+  - manager

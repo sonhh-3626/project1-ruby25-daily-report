@@ -3,11 +3,8 @@ class Admin::DepartmentsController < ApplicationController
   before_action :check_dependency_destroy_department, only: :destroy
 
   def index
-    departments = if params[:query].present?
-                    Department.search_by_name(params[:query]).order_by_latest
-                  else
-                    Department.order_by_latest
-                  end
+    departments = Department.search_by_name(params[:query]).order_by_latest
+                            .order_by_latest
     @pagy, @departments = pagy departments, limit: Settings.ITEMS_PER_PAGE_10
   end
 
