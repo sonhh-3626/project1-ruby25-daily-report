@@ -24,6 +24,12 @@ module NavigationHelper
         path: help_path,
         icon: "handshake-angle",
         roles: %w(admin manager user)
+      },
+      {
+        label: t("nav_items.logout"),
+        path: nil,
+        icon: "sign-out",
+        roles: %w(admin manager user)
       }
     ]
 

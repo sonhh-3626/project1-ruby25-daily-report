@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :find_user, only: %i(edit update)
+  before_action :logged_in_user
 
   def index
     users = filter_users

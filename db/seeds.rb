@@ -13,13 +13,22 @@ departments = [
     name: "Nhân viên #{i + 1}",
     email: "user#{i + 1}@example.com",
     role: 0,
+    password: "123456",
     department: departments.sample
   )
 end
 
 User.create!(
+  name: "Admin 1",
+  email: "admin@gmail.com",
+  role: 2,
+  password: "123456"
+)
+
+User.create!(
   name: "Quản lý 1",
   email: "manager1@example.com",
   role: 1,
+  password: "123456",
   department: departments.first
 )

@@ -30,3 +30,5 @@ en:
       user: "User"
     errors:
       not_found: "User not found."
+      invalid_email: "Invalid email."
+      unlogged_in: "Unlogged in."
