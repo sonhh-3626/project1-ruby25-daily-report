@@ -1,12 +1,11 @@
 class Admin::DepartmentsController < ApplicationController
-  before_action :logged_in_user
+  before_action :logged_in_user, :admin_user
   before_action :load_department, only: %i(show edit update destroy)
+  before_action :fitler_departments, only: :index
   before_action :check_dependency_destroy_department, only: :destroy
 
   def index
-    departments = Department.search_by_name(params[:query]).order_by_latest
-                            .order_by_latest
-    @pagy, @departments = pagy departments, limit: Settings.ITEMS_PER_PAGE_10
+    @pagy, @departments = pagy @departments, limit: Settings.ITEMS_PER_PAGE_10
   end
 
   def new
@@ -64,5 +63,21 @@ class Admin::DepartmentsController < ApplicationController
 
     flash[:danger] = t "departments.errors.has_users"
     redirect_to admin_departments_path, status: :see_other
+  end
+
+  def fitler_departments
+    @departments = Department.search_by_name(params[:query])
+                             .order_by_latest
+    return if @departments.present?
+
+    flash[:warning] = t "departments.index.table.no_result"
+    redirect_to admin_departments_path, status: :see_other
+  end
+
+  def admin_user
+    return if current_user.admin?
+
+    flash[:danger] = t "users.errors.not_admin"
+    redirect_to root_url, status: :see_other
   end
 end

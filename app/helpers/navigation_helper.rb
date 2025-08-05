@@ -14,6 +14,12 @@ module NavigationHelper
         roles: %w(admin)
       },
       {
+        label: t("nav_items.departments"),
+        path: manager_departments_path,
+        icon: "home",
+        roles: %w(manager)
+      },
+      {
         label: t("nav_items.users"),
         path: users_path,
         icon: "users",
