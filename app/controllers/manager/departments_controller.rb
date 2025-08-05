@@ -34,11 +34,4 @@ class Manager::DepartmentsController < ApplicationController
     flash[:warning] = t "departments.index.table.no_result"
     redirect_to manager_departments_path, status: :see_other
   end
-
-  def manager_user
-    return if current_user.manager?
-
-    flash[:danger] = t "users.error.not_manager"
-    redirect_to root_url, status: :see_other
-  end
 end

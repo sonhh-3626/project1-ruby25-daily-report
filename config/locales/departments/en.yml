@@ -33,7 +33,7 @@ en:
       created_at: "Created At"
       updated_at: "Updated At"
       no_description: "None"
-      back: "← Back to list"
+      back: "Back to list"
     destroy:
       success: "Department deleted successfully."
       fail: "Failed to delete department."

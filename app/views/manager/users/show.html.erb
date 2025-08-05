@@ -1,0 +1,14 @@
+<h1 class="text-center"><%= t "users.show.title" %></h1>
+
+<div class="card">
+  <div class="card-body">
+    <p><strong><%= t "users.form.name" %>:</strong> <%= @user.name %></p>
+    <p><strong><%= t "users.form.email" %>:</strong> <%= @user.email %></p>
+    <p><strong><%= t "users.form.role" %>:</strong> <%= @user.role.humanize %></p>
+    <p><strong><%= t "users.form.department" %>:</strong> <%= @user.department&.name || "-" %></p>
+    <p><strong><%= t "users.show.created_at" %>:</strong> <%= l(@user.created_at, format: :long) %></p>
+    <p><strong><%= t "users.show.updated_at" %>:</strong> <%= l(@user.updated_at, format: :long) %></p>
+
+    <%= link_to t("users.show.back"), manager_users_path, class: "btn btn-secondary ms-2" %>
+  </div>
+</div>

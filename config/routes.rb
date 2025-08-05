@@ -5,13 +5,14 @@ Rails.application.routes.draw do
     get "/login", to: "sessions#new"
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
-    resources :users, only: %i(index edit update)
     resources :departments
     namespace :admin do
       resources :departments
+      resources :users, only: %i(index edit update)
     end
     namespace :manager do
       resources :departments, only: %i(index show)
+      resources :users, only: %i(index show)
     end
   end
 end
