@@ -16,4 +16,5 @@ class Department < ApplicationRecord
   scope :search_by_name, lambda {|query|
     where("name LIKE ?", "%#{query.strip}%") if query.present?
   }
+  scope :with_department_id, ->(id){where(id:)}
 end

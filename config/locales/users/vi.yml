@@ -16,6 +16,7 @@ vi:
         all: "Tất cả"
         submit: "Lọc"
         reset: "Đặt lại"
+      add_new_member_btn: "Thêm thành viên mới"
     show:
       title: "Thông tin người dùng"
       back: "Quay lại danh sách"
@@ -37,3 +38,18 @@ vi:
       unlogged_in: "Chưa đăng nhập."
       be_admin: "Vai trò của bạn là Admin, không thể thực hiện chức năng này!"
       be_manager: "Vai trò của bạn là Manager, không thể thực hiện chức năng này!"
+      delete_failed: "Thất bại loại người này ra khỏi bộ phận."
+      password_length: "Vui lòng nhập đủ kỷ tự cho mật khẩu."
+    assign:
+      success: "Thêm vào bộ phận thành công!"
+      fail: "Thất bại! Chưa hoàn tất thêm vào bộ phận."
+    success:
+      deleted: "Bỏ người dùng ra khỏi bộ phận thành công!"
+    new:
+      title: "Thêm thành viên mới vào bộ phận"
+      no_user_for_assign: "Không có người dùng nào để gán vào bộ phận"
+      confirm_delete: "Xác nhận loại bỏ nhân viên này ra khói?"
+      choose_user: "Chọn user..."
+      choose_department: "Chọn department..."
+      department: "Bộ phận"
+      select_user: "Lựa chọn thành viên"

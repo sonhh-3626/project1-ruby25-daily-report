@@ -2,10 +2,6 @@ class User < ApplicationRecord
   attr_accessor :remember_token
 
   belongs_to :department, optional: true
-  has_many :managed_departments,
-           class_name: Department.name,
-           foreign_key: :manager_id,
-           dependent: :nullify
   has_many :sent_reports,
            class_name: DailyReport.name,
            foreign_key: :owner_id,
@@ -49,10 +45,9 @@ class User < ApplicationRecord
     where("email LIKE ?", "%#{email}%") if email.present?
   }
   scope :managed_by, lambda {|manager|
-    if manager.present?
-      where(department_id: manager.managed_departments.select(:id))
-    end
+    where(department_id: manager.department_id) if manager.present?
   }
+  scope :unassigned_users, ->{where(department_id: nil, role: :user)}
 
   class << self
     def digest string

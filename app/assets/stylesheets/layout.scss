@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "variables";
+@import url("https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css");
 
 .logo {
   font-weight: 600;
@@ -246,4 +247,55 @@
   .form-control {
     color: $state-danger-text;
   }
+}
+
+// SELECT 2
+.select2-container {
+ width: 100% !important;
+}
+
+.select2-container--default .select2-selection--single {
+ height: calc(2.25rem + 2px) !important;
+ padding: 0.375rem 0.75rem;
+ border: 1px solid $gray-medium-light !important;
+ border-radius: 0.375rem !important;
+ background-color: $gray-light;
+ font-size: 1.1rem !important;
+ line-height: 1.5;
+
+ .select2-selection__rendered {
+   color: $gray-green;
+   padding: 0;
+   line-height: calc(2.25rem - 2px);
+   font-size: 1.1rem !important;
+ }
+
+ .select2-selection__arrow {
+   height: calc(2.25rem + 2px) !important;
+   right: 10px;
+ }
+}
+
+.select2-dropdown {
+ border: 1px solid $gray-medium-light;
+ border-radius: 0.375rem;
+ box-shadow: 0 0.125rem 0.25rem $black-light;
+ font-size: 1.1rem !important;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+ border: 1px solid $gray-medium-light;
+ border-radius: 0.375rem;
+ padding: 0.375rem 0.75rem;
+ font-size: 1.1rem !important;
+}
+
+.select2-container--default .select2-results__option {
+ font-size: 1.1rem !important;
+ padding: 0.5rem 0.75rem;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--single {
+ border-color: $blue-light !important;
+ box-shadow: 0 0 0 0.25rem $gray-dark !important;
 }

@@ -1,3 +1,4 @@
+Department.update_all(manager_id: nil)
 User.delete_all
 Department.delete_all
 
@@ -34,3 +35,10 @@ manager = User.create!(
 )
 
 manager.managed_departments << departments[0..2]
+
+new_user = User.create!(
+  name: "New user 1",
+  email: "newuser@gmail.com",
+  role: 0,
+  password: "123456"
+)
