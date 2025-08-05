@@ -2,13 +2,8 @@
 
 <div class="row mb-4 align-items-end">
   <div class="col-md-10">
-    <%= form_with url: admin_departments_path, method: :get, local: true do |f| %>
+    <%= form_with url: manager_departments_path, method: :get, local: true do |f| %>
       <%= f.text_field :query, value: params[:query], placeholder: t("departments.index.search_placeholder"), class: "form-control" %>
-    <% end %>
-  </div>
-  <div class="col-md-2 text-md-end mt-2 mt-md-0">
-    <%= link_to new_admin_department_path, class: "btn btn-success" do %>
-      <i class="fas fa-plus"></i> <%= t("departments.index.add_button") %>
     <% end %>
   </div>
 </div>

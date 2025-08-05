@@ -10,5 +10,8 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :departments
     end
+    namespace :manager do
+      resources :departments, only: %i(index show)
+    end
   end
 end

@@ -32,3 +32,5 @@ vi:
       not_found: "Không tìm thấy người dùng."
       invalid_email: "Email không hợp lệ."
       unlogged_in: "Chưa đăng nhập."
+      not_admin: "Người dùng phải là quản trị viên để thao tác với chức năng này!"
+      not_manager: "Người dùng phải là quản lý để thực hiện chức năng này!"

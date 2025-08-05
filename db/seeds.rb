@@ -4,7 +4,7 @@ Department.delete_all
 departments = [
   Department.create!(name: "Phòng Kỹ thuật", description: "Xử lý các vấn đề kỹ thuật và bảo trì hệ thống"),
   Department.create!(name: "Phòng Kinh doanh", description: "Quản lý khách hàng và hoạt động kinh doanh"),
-  Department.create!(name: "Phòng Hành chính", description: "Quản lý khách hàng và hoạt động kinh doanh"),
+  Department.create!(name: "Phòng Hành chính", description: "Quản lý nhân sự, hành chính"),
   Department.create!(name: "Phòng IT", description: "Quản lý hệ thống mạng, phần mềm, phần cứng")
 ]
 
@@ -25,10 +25,12 @@ User.create!(
   password: "123456"
 )
 
-User.create!(
+manager = User.create!(
   name: "Quản lý 1",
   email: "manager1@example.com",
   role: 1,
   password: "123456",
   department: departments.first
 )
+
+manager.managed_departments << departments[0..2]
