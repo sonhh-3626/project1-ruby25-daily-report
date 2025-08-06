@@ -27,4 +27,18 @@ class ApplicationController < ActionController::Base
     flash[:danger] = t "users.errors.unlogged_in"
     redirect_to login_url, status: :see_other
   end
+
+  def admin_user
+    return if current_user.admin?
+
+    flash[:danger] = t "users.error.not_manager"
+    redirect_to root_url, status: :see_other
+  end
+
+  def manager_user
+    return if current_user.manager?
+
+    flash[:danger] = t "users.error.not_manager"
+    redirect_to root_url, status: :see_other
+  end
 end

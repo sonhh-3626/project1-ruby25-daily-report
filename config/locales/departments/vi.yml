@@ -33,7 +33,7 @@ vi:
       created_at: "Ngày tạo"
       updated_at: "Ngày cập nhật"
       no_description: "Không có"
-      back: "← Quay lại danh sách"
+      back: "Quay lại danh sách"
     destroy:
       success: "Xóa bộ phận thành công"
       fail: "Xóa bộ phận thất bại"

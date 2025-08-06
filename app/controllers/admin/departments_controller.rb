@@ -73,11 +73,4 @@ class Admin::DepartmentsController < ApplicationController
     flash[:warning] = t "departments.index.table.no_result"
     redirect_to admin_departments_path, status: :see_other
   end
-
-  def admin_user
-    return if current_user.admin?
-
-    flash[:danger] = t "users.errors.not_admin"
-    redirect_to root_url, status: :see_other
-  end
 end

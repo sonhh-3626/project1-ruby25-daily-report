@@ -21,9 +21,15 @@ module NavigationHelper
       },
       {
         label: t("nav_items.users"),
-        path: users_path,
+        path: admin_users_path,
         icon: "users",
         roles: %w(admin)
+      },
+      {
+        label: t("nav_items.users"),
+        path: manager_users_path,
+        icon: "users",
+        roles: %w(manager)
       },
       {
         label: t("nav_items.help"),

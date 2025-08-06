@@ -48,6 +48,11 @@ class User < ApplicationRecord
   scope :filter_by_email, lambda {|email|
     where("email LIKE ?", "%#{email}%") if email.present?
   }
+  scope :managed_by, lambda {|manager|
+    if manager.present?
+      where(department_id: manager.managed_departments.select(:id))
+    end
+  }
 
   class << self
     def digest string

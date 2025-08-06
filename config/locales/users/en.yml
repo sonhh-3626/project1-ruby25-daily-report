@@ -16,6 +16,9 @@ en:
         all: "All"
         submit: "Filter"
         reset: "Reset"
+    show:
+      title: "User information"
+      back: "Back to list"
     edit:
       title: "Update User"
       updated_successfully: "Updated successfully!"
@@ -32,5 +35,5 @@ en:
       not_found: "User not found."
       invalid_email: "Invalid email."
       unlogged_in: "Unlogged in."
-      not_admin: "User must be admin!"
-      not_manager: "User must be manager!"
+      be_admin: "Your role is Admin. No right!"
+      be_manager: "Your role is Manager. No right!"

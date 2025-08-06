@@ -10,8 +10,8 @@
   </td>
   <td><%= user.department_name if user.department.present? %></td>
   <td>
-    <%= link_to edit_user_path(user), class: "btn btn-sm btn-outline-warning", title: t("users.index.edit") do %>
-      <i class="fas fa-edit"></i>
+    <%= link_to manager_user_path(user), class: "btn btn-sm btn-outline-primary", title: t("users.index.show") do %>
+      <i class="fas fa-eye"></i>
     <% end %>
   </td>
 </tr>

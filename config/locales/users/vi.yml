@@ -16,6 +16,9 @@ vi:
         all: "Tất cả"
         submit: "Lọc"
         reset: "Đặt lại"
+    show:
+      title: "Thông tin người dùng"
+      back: "Quay lại danh sách"
     edit:
       title: "Cập nhật người dùng"
       updated_successfully: "Cập nhật thành công!"
@@ -32,5 +35,5 @@ vi:
       not_found: "Không tìm thấy người dùng."
       invalid_email: "Email không hợp lệ."
       unlogged_in: "Chưa đăng nhập."
-      not_admin: "Người dùng phải là quản trị viên để thao tác với chức năng này!"
-      not_manager: "Người dùng phải là quản lý để thực hiện chức năng này!"
+      be_admin: "Vai trò của bạn là Admin, không thể thực hiện chức năng này!"
+      be_manager: "Vai trò của bạn là Manager, không thể thực hiện chức năng này!"

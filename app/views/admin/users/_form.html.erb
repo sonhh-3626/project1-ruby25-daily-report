@@ -1,4 +1,4 @@
-<%= form_with model: @user, local: true do |f| %>
+<%= form_with model: @user, url: admin_user_path(@user), local: true do |f| %>
   <div class="form-group">
     <%= f.label :name, t("users.form.name") %>
     <%= f.text_field :name, class: "form-control" %>
@@ -17,5 +17,5 @@
   <%= f.select :department_id, department_options_for_edit, { include_blank: false }, class: "form-control" %>
 
   <%= f.submit t("users.form.save"), class: "btn btn-primary" %>
-  <%= link_to t("edit.cancel"), users_path, class: "btn btn-secondary ms-2" %>
+  <%= link_to t("edit.cancel"), admin_users_path, class: "btn btn-secondary ms-2" %>
   <% end %>
