@@ -1,5 +1,8 @@
 class Manager::DailyReportsController < ApplicationController
+<<<<<<< HEAD
   before_action :logged_in_user, :manager_user
+=======
+>>>>>>> 4a99617 ([Manager] Quản lý danh sách báo cáo công việc của nhân viên)
   before_action :set_daily_report, only: %i(edit update)
   before_action :set_staff_members, :filter_daily_reports, only: :index
 
@@ -13,7 +16,15 @@ class Manager::DailyReportsController < ApplicationController
   def edit; end
 
   def update
+<<<<<<< HEAD
     if @daily_report.update daily_report_params
+=======
+    new_notes = daily_report_params[:manager_notes]&.strip
+    old_notes = @daily_report.manager_notes&.strip
+
+    if @daily_report.update daily_report_params
+      update_status new_notes, old_notes
+>>>>>>> 4a99617 ([Manager] Quản lý danh sách báo cáo công việc của nhân viên)
       flash[:success] = t "daily_report.update.success"
       redirect_to manager_daily_reports_path, status: :see_other
     else
@@ -25,6 +36,7 @@ class Manager::DailyReportsController < ApplicationController
   private
 
   def daily_report_params
+<<<<<<< HEAD
     dr_params = params.require(:daily_report)
                       .permit DailyReport::MANAGER_NOTE_PARAM
     new_notes = dr_params[:manager_notes]&.strip
@@ -32,6 +44,9 @@ class Manager::DailyReportsController < ApplicationController
     dr_params[:status] = update_status new_notes, old_notes
     dr_params[:reviewed_at] = Time.current if dr_params[:status] != :pending
     dr_params
+=======
+    params.require(:daily_report).permit DailyReport::MANAGER_NOTE_PARAM
+>>>>>>> 4a99617 ([Manager] Quản lý danh sách báo cáo công việc của nhân viên)
   end
 
   def set_daily_report
@@ -54,6 +69,7 @@ class Manager::DailyReportsController < ApplicationController
   end
 
   def update_status new_notes, old_notes
+<<<<<<< HEAD
     if new_notes.present? && new_notes != old_notes
       :commented
     elsif new_notes.blank? && old_notes.present?
@@ -63,5 +79,20 @@ class Manager::DailyReportsController < ApplicationController
     else
       :read
     end
+=======
+    new_status = if new_notes.present? && new_notes != old_notes
+                   :commented
+                 elsif new_notes.blank? && old_notes.present?
+                   :read
+                 elsif new_notes == old_notes
+                   :commented
+                 else
+                   :read
+                 end
+
+    return if @daily_report.status == new_status.to_s
+
+    @daily_report.update_column :status, new_status
+>>>>>>> 4a99617 ([Manager] Quản lý danh sách báo cáo công việc của nhân viên)
   end
 end

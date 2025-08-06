@@ -53,8 +53,11 @@ class User < ApplicationRecord
   scope :get_staff_members, lambda {|manager|
     where(department_id: manager.department_id).where.not(id: manager.id)
   }
+<<<<<<< HEAD
   scope :manager_count, ->{where(role: :manager).count}
   scope :user_count, ->{where(role: :user).count}
+=======
+>>>>>>> 4a99617 ([Manager] Quản lý danh sách báo cáo công việc của nhân viên)
 
   class << self
     def digest string
