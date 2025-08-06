@@ -15,10 +15,10 @@ class Manager::UsersController < ApplicationController
     department = current_user.department
     if user && department
       user.update(department:)
-      flash[:success] = t("users.assign.success")
+      flash[:success] = t "users.assign.success"
       redirect_to manager_users_path
     else
-      flash[:danger] = t("users.assign.fail")
+      flash[:danger] = t "users.assign.fail"
       redirect_to new_manager_user_path
     end
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_08_04_072616) do
+ActiveRecord::Schema[7.0].define(version: 2025_08_06_033230) do
   create_table "daily_reports", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "owner_id", null: false
     t.bigint "receiver_id"
@@ -23,6 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2025_08_04_072616) do
     t.text "manager_notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "report_date"
     t.index ["created_at"], name: "index_daily_reports_on_created_at"
     t.index ["owner_id"], name: "index_daily_reports_on_owner_id"
     t.index ["receiver_id"], name: "index_daily_reports_on_receiver_id"

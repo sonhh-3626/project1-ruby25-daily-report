@@ -32,6 +32,12 @@ module NavigationHelper
         roles: %w(manager)
       },
       {
+        label: t("nav_items.reports"),
+        path: user_daily_reports_path,
+        icon: "file",
+        roles: %w(user)
+      },
+      {
         label: t("nav_items.help"),
         path: help_path,
         icon: "handshake-angle",

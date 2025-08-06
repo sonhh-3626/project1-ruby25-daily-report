@@ -34,6 +34,8 @@ class User < ApplicationRecord
 
   enum role: Settings.user_role.to_h
   delegate :name, to: :department, prefix: true
+  delegate :manager, to: :department, allow_nil: true
+  delegate :name, to: :manager, prefix: true, allow_nil: true
 
   USER_PARAMS = %w(name email role department_id).freeze
 
@@ -45,9 +47,8 @@ class User < ApplicationRecord
     where("email LIKE ?", "%#{email}%") if email.present?
   }
   scope :managed_by, lambda {|manager|
-    where(department_id: manager.department_id) if manager.present?
+    manager.present? && where(department_id: manager.department_id)
   }
-  scope :unassigned_users, ->{where(department_id: nil, role: :user)}
 
   class << self
     def digest string

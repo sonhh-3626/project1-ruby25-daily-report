@@ -1,0 +1,37 @@
+<%= form_with model: [:user, @daily_report], local: true do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <label class="form-label fw-bold">
+    <%= t("daily_report.form.staff_name") %> <span class="text-danger">*</span>
+  </label>
+  <input type="text" class="form-control" value="<%= current_user.name %>" readonly>
+
+  <label class="form-label fw-bold">
+    <%= t("daily_report.form.manager_name") %> <span class="text-danger">*</span>
+  </label>
+  <input type="text" class="form-control" value="<%= current_user.manager_name %>" readonly>
+  <%= f.hidden_field :receiver_id, value: current_user.department&.manager&.id %>
+
+  <label class="form-label fw-bold">
+    <%= t("daily_report.form.department") %> <span class="text-danger">*</span>
+  </label>
+  <input type="text" class="form-control" value="<%= current_user.department&.name || 'N/A' %>" readonly>
+
+  <%= f.label :report_date, t("daily_report.form.report_date"), class: "form-label fw-bold" %> <span class="text-danger">*</span>
+  <%= f.date_field :report_date, class: "form-control" %>
+
+  <%= f.label :planned_tasks, t("daily_report.form.planned_tasks"), class: "form-label" %> <span class="text-danger">*</span>
+  <%= f.text_area :planned_tasks, class: "form-control", rows: 3 %>
+
+  <%= f.label :actual_tasks, t("daily_report.form.actual_tasks"), class: "form-label" %> <span class="text-danger">*</span>
+  <%= f.text_area :actual_tasks, class: "form-control", rows: 3 %>
+
+  <%= f.label :incomplete_reason, t("daily_report.form.incomplete_reason"), class: "form-label" %> <span class="text-danger">*</span>
+  <%= f.text_area :incomplete_reason, class: "form-control", rows: 2 %>
+
+  <%= f.label :next_day_planned_tasks, t("daily_report.form.next_day_planned_tasks"), class: "form-label" %> <span class="text-danger">*</span>
+  <%= f.text_area :next_day_planned_tasks, class: "form-control", rows: 2 %>
+
+  <%= f.submit(@daily_report.new_record? ? t("daily_report.form.submit_create") : t("daily_report.form.submit_update"), class: "btn btn-primary") %>
+  <%= link_to t("daily_report.form.back"), user_daily_reports_path, class: "btn btn-secondary ms-2" %>
+<% end %>

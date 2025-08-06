@@ -1,0 +1,66 @@
+vi:
+  daily_report:
+    new:
+      title: "Tạo báo cáo mới"
+    create:
+      success: "Tạo báo cáo thành công."
+      failure: "Tạo báo cáo thất bại."
+      error_report_date: " Bạn đã tạo một report vào ngày này, hãy cập nhập nó."
+    edit:
+      forbidden_status: "Chỉ có thể cập nhâp báo cáo khi trạng thái là pending/commented."
+      title: "Chỉnh sửa báo cáo"
+    update:
+      success: "Cập nhật báo cáo thành công."
+      failure: "Cập nhật báo cáo thất bại."
+    delete:
+      success: "Xóa báo cáo thành công."
+      forbidden_status: "Chỉ có thể xóa báo cáo khi trạng thái là 'pending'."
+    index:
+      title: "Danh sách các báo cáo"
+      show: "Xem"
+      edit: "Sửa"
+      delete: "Xóa"
+      add_button: "Tạo mới"
+      report_date: "Ngày báo cáo"
+      status: "Trạng thái"
+      all_status: "Tất cả"
+      filter: "Lọc"
+      reset: "Đặt lại"
+      owner: "Nhân viên"
+      created_at: "Ngày tạo"
+      receiver: "Người nhận"
+      planned_tasks: "Công việc dự kiến"
+      reviewed_at: "Ngày duyệt"
+      action: "Thao tác"
+      table:
+        no_result: "Không có kết quả tìm kiếm tương ứng."
+      no_data_message: "Bạn chưa có bản báo cáo nào."
+    new:
+      confirm_delete: "Bạn có chắc chắn muốn xóa báo cáo này không?"
+    form:
+      staff_name: "Tên nhân viên"
+      manager_name: "Tên quản lý"
+      department: "Phòng ban"
+      report_date: "Ngày báo cáo"
+      planned_tasks: "Công việc dự kiến"
+      actual_tasks: "Công việc đã làm"
+      incomplete_reason: "Lý do chưa hoàn thành"
+      next_day_planned_tasks: "Kế hoạch cho ngày tiếp theo"
+      submit_create: "Tạo báo cáo"
+      submit_update: "Cập nhật báo cáo"
+      back: "Quay lại"
+    show:
+      title: "Chi tiết báo cáo ngày"
+      report_info: "Thông tin báo cáo"
+      staff_name: "Tên nhân viên"
+      manager_name: "Tên quản lý"
+      department: "Phòng ban"
+      date: "Ngày báo cáo"
+      planned_tasks: "Công việc dự kiến"
+      actual_tasks: "Công việc thực tế"
+      incomplete_reason: "Lý do chưa hoàn thành"
+      next_day_tasks: "Kế hoạch ngày tiếp theo"
+  common:
+    back: "Quay lại"
+    edit: "Chỉnh sửa"
+    no_data: "Không có dữ liệu"

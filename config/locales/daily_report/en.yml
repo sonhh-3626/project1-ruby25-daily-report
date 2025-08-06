@@ -1,0 +1,65 @@
+en:
+  daily_report:
+    new:
+      title: "Create New Report"
+      confirm_delete: "Are you sure you want to delete this report?"
+    create:
+      success: "Report created successfully."
+      failure: "Failed to create report."
+      error_report_date: "You have already submitted a report for this date. Please update it instead."
+    edit:
+      forbidden_status: "You can only update the report when the status is pending or commented."
+      title: "Edit Report"
+    update:
+      success: "Report updated successfully."
+      failure: "Failed to update report."
+    delete:
+      success: "Report deleted successfully."
+      forbidden_status: "You can only delete reports with status 'pending'."
+    index:
+      title: "Daily Report List"
+      show: "Show"
+      edit: "Edit"
+      delete: "Delete"
+      add_button: "New Report"
+      report_date: "Report Date"
+      status: "Status"
+      all_status: "All"
+      filter: "Filter"
+      reset: "Reset"
+      owner: "Staff"
+      created_at: "Created At"
+      receiver: "Manager"
+      planned_tasks: "Planned Tasks"
+      reviewed_at: "Reviewed At"
+      action: "Action"
+      table:
+        no_result: "No matching records found."
+      no_data_message: "You have no report. Create now!"
+    form:
+      staff_name: "Staff Name"
+      manager_name: "Manager Name"
+      department: "Department"
+      report_date: "Report Date"
+      planned_tasks: "Planned Tasks"
+      actual_tasks: "Actual Tasks"
+      incomplete_reason: "Reason for Incompletion"
+      next_day_planned_tasks: "Next Day's Planned Tasks"
+      submit_create: "Create Report"
+      submit_update: "Update Report"
+      back: "Back"
+    show:
+      title: "Daily Report Detail"
+      report_info: "Report Information"
+      staff_name: "Staff Name"
+      manager_name: "Manager Name"
+      department: "Department"
+      date: "Report Date"
+      planned_tasks: "Planned Tasks"
+      actual_tasks: "Actual Tasks"
+      incomplete_reason: "Incomplete Reason"
+      next_day_tasks: "Next Day's Planned Tasks"
+  common:
+    back: "Back"
+    edit: "Edit"
+    no_data: "No data available"

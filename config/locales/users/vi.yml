@@ -38,6 +38,7 @@ vi:
       unlogged_in: "Chưa đăng nhập."
       be_admin: "Vai trò của bạn là Admin, không thể thực hiện chức năng này!"
       be_manager: "Vai trò của bạn là Manager, không thể thực hiện chức năng này!"
+      be_user: "Vai trò của bạn là User. Không thể thực hiện chức năng này!"
       delete_failed: "Thất bại loại người này ra khỏi bộ phận."
       password_length: "Vui lòng nhập đủ kỷ tự cho mật khẩu."
     assign:
