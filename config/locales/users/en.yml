@@ -38,6 +38,7 @@ en:
       unlogged_in: "Unlogged in."
       be_admin: "Your role is Admin. No right!"
       be_manager: "Your role is Manager. No right!"
+      be_user: "Your role is User. No right!"
       delete_failed: "Failed to remove this user from the department."
       password_length: "Please enter a password with sufficient length."
     assign:

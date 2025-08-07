@@ -14,5 +14,8 @@ Rails.application.routes.draw do
       resources :departments, only: %i(index show)
       resources :users, only: %i(new create index show destroy)
     end
+    namespace :user do
+      resources :daily_reports
+    end
   end
 end

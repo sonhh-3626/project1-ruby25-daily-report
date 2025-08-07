@@ -31,14 +31,21 @@ class ApplicationController < ActionController::Base
   def admin_user
     return if current_user.admin?
 
-    flash[:danger] = t "users.error.be_admin"
+    flash[:danger] = t "users.errors.be_admin"
     redirect_to root_url, status: :see_other
   end
 
   def manager_user
     return if current_user.manager?
 
-    flash[:danger] = t "users.error.be_manager"
+    flash[:danger] = t "users.errors.be_manager"
+    redirect_to root_url, status: :see_other
+  end
+
+  def check_user_role
+    return if current_user.user?
+
+    flash[:danger] = t "users.errors.be_user"
     redirect_to root_url, status: :see_other
   end
 end

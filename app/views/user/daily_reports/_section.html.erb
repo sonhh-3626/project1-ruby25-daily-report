@@ -1,0 +1,8 @@
+<div class="card mb-3">
+  <div class="card-header bg-light">
+    <strong><%= title %></strong>
+  </div>
+  <div class="card-body">
+    <%= simple_format(content.presence || t("common.no_data")) %>
+  </div>
+</div>
