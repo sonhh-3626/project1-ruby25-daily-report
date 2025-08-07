@@ -1,0 +1,22 @@
+<h2 class="text-center"><%= t("users.new.title") %></h2>
+
+<%= form_with url: manager_users_path, method: :post, local: true do |f| %>
+  <div class="mb-3">
+    <%= f.label :department_id, t("users.new.department"), class: "form-label" %>
+    <p class="form-control-plaintext"><%= current_user.department_name %></p>
+    <%= f.hidden_field :department_id, value: current_user.department.id %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :user_id, t("users.new.select_user"), class: "form-label" %>
+    <%= f.select :user_id,
+        options_from_collection_for_select(@available_users || [], :id, :name),
+        { prompt: t("users.new.choose_user") },
+        { class: "form-select select2" } %>
+  </div>
+
+  <div class="mt-3">
+    <%= f.submit t("users.form.save"), class: "btn btn-primary" %>
+    <%= link_to t("edit.cancel"), manager_users_path, class: "btn btn-secondary ms-2" %>
+  </div>
+<% end %>

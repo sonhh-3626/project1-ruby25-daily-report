@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
     namespace :manager do
       resources :departments, only: %i(index show)
-      resources :users, only: %i(index show)
+      resources :users, only: %i(new create index show destroy)
     end
   end
 end

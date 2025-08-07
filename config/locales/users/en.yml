@@ -16,6 +16,7 @@ en:
         all: "All"
         submit: "Filter"
         reset: "Reset"
+      add_new_member_btn: "Add new member"
     show:
       title: "User information"
       back: "Back to list"
@@ -37,3 +38,18 @@ en:
       unlogged_in: "Unlogged in."
       be_admin: "Your role is Admin. No right!"
       be_manager: "Your role is Manager. No right!"
+      delete_failed: "Failed to remove this user from the department."
+      password_length: "Please enter a password with sufficient length."
+    assign:
+      success: "Successfully added to the department!"
+      fail: "Failed! Could not complete the assignment to the department."
+    success:
+      deleted: "User successfully removed from the department!"
+    new:
+      title: "Add new member"
+      no_user_for_assign: "There are no users available to assign to the department."
+      confirm_delete: "Are you sure you want to remove this employee?"
+      choose_user: "Choose user..."
+      choose_department: "Choose department..."
+      department: "Department"
+      select_user: "Select user"

@@ -16,15 +16,6 @@ module UserHelper
     )
   end
 
-  def department_options_for_select_manager user
-    options_from_collection_for_select(
-      user.managed_departments || [],
-      :id,
-      :name,
-      params[:department_id]
-    )
-  end
-
   def department_options_for_edit
     [[t("users.form.no_department"), nil]] +
       (@departments || []).map{|d| [d.name, d.id]}
