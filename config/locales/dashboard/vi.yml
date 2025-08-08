@@ -9,4 +9,13 @@ vi:
       departments: "Số bộ phận"
       managers: "Số quản lý"
       users: "Tổng số người dùng"
-  
+  manager:
+    dashboard:
+      user_info: "Thông tin người dùng"
+      name: "Tên"
+      email: "Email"
+      role: "Vai trò"
+      department_info: "Thông tin bộ phận"
+      department_name: "Tên bộ phận"
+      staff_count: "Tổng số nhân viên"
+      pending_reports: "Báo cáo chờ duyệt"

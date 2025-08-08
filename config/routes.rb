@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :users, only: %i(index edit update)
     end
     namespace :manager do
+      get "dashboard/show", to: "dashboard#show"
       resources :departments, only: %i(index show)
       resources :users, only: %i(new create index show destroy)
       resources :daily_reports, only: %i(edit index update)

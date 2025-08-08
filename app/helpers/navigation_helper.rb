@@ -15,6 +15,18 @@ module NavigationHelper
         roles: %w(admin)
       },
       {
+        label: t("nav_items.dashboard"),
+        path: manager_dashboard_show_path,
+        icon: "tachometer-alt",
+        roles: %w(manager)
+      },
+    {
+        label: t("nav_items.reports"),
+        path: manager_daily_reports_path,
+        icon: "file",
+        roles: %w(manager)
+      },
+      {
         label: t("nav_items.departments"),
         path: admin_departments_path,
         icon: "home",
@@ -36,12 +48,6 @@ module NavigationHelper
         label: t("nav_items.users"),
         path: manager_users_path,
         icon: "users",
-        roles: %w(manager)
-      },
-      {
-        label: t("nav_items.reports"),
-        path: manager_daily_reports_path,
-        icon: "file",
         roles: %w(manager)
       },
       {
