@@ -17,4 +17,5 @@ class Department < ApplicationRecord
     where("name LIKE ?", "%#{query.strip}%") if query.present?
   }
   scope :with_department_id, ->(id){where(id:)}
+  scope :count_users, ->{where(role: :user).count}
 end

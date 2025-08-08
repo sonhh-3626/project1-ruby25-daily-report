@@ -55,6 +55,7 @@ gem "dotenv-rails"
 gem "i18n-js", "<= 3.9.2"
 gem "jquery-rails"
 gem "pagy"
+gem "simple_calendar"
 gem "rails-i18n"
 gem "simple_calendar"
 group :development, :test do

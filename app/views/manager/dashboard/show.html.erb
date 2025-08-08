@@ -1,8 +1,9 @@
-<<<<<<< HEAD
+
 <h2 class="text-center"><%= t "dashboard.title" %></h2>
 
 <div class="container mt-4">
   <div class="row">
+    <!-- Left: User Info -->
     <div class="col-md-4">
       <div class="card">
         <div class="card-header bg-primary text-white">
@@ -12,41 +13,18 @@
           <p><strong><%= t("dashboard.manager.name") %>:</strong> <%= current_user.name %></p>
           <p><strong><%= t("dashboard.manager.email") %>:</strong> <%= current_user.email %></p>
           <p><strong><%= t("dashboard.manager.role") %>:</strong> <%= current_user.role %></p>
-=======
-<div class="container mt-4">
-  <div class="row">
-    <!-- Left: User Info -->
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-header bg-primary text-white">
-          <i class="bi bi-person"></i> <%= t("manager.dashboard.user_info") %>
-        </div>
-        <div class="card-body">
-          <p><strong><%= t("manager.dashboard.name") %>:</strong> <%= current_user.name %></p>
-          <p><strong><%= t("manager.dashboard.email") %>:</strong> <%= current_user.email %></p>
-          <p><strong><%= t("manager.dashboard.role") %>:</strong> <%= current_user.role %></p>
->>>>>>> 31fc8c7 (Manager dashboard)
         </div>
       </div>
     </div>
 
-<<<<<<< HEAD
     <div class="col-md-8">
       <div class="card">
         <div class="card-header bg-success text-white">
           <i class="bi bi-building"></i> <%= t("dashboard.manager.department_info") %>
-=======
-    <!-- Right: Department Info -->
-    <div class="col-md-8">
-      <div class="card">
-        <div class="card-header bg-success text-white">
-          <i class="bi bi-building"></i> <%= t("manager.dashboard.department_info") %>
->>>>>>> 31fc8c7 (Manager dashboard)
         </div>
         <div class="card-body">
           <ul class="list-group">
             <li class="list-group-item">
-<<<<<<< HEAD
               <strong><%= t("dashboard.manager.department_name") %>:</strong> <%= @department.name %>
             </li>
             <li class="list-group-item">
@@ -54,15 +32,13 @@
             </li>
             <li class="list-group-item">
               <strong><%= t("dashboard.manager.pending_reports") %>:</strong> <%= @pending_reports_count %>
-=======
-              <strong><%= t("manager.dashboard.department_name") %>:</strong> <%= @department.name %>
             </li>
             <li class="list-group-item">
-              <strong><%= t("manager.dashboard.staff_count") %>:</strong> <%= @staff_count %>
+              <strong><%= t("dashboard.manager.staff_count") %>:</strong> <%= @staff_count %>
             </li>
             <li class="list-group-item">
               <strong><%= t("manager.dashboard.pending_reports") %>:</strong> <%= @pending_reports_count %>
->>>>>>> 31fc8c7 (Manager dashboard)
+              <strong><%= t("dashboard.manager.pending_reports") %>:</strong> <%= @pending_reports_count %>
             </li>
           </ul>
         </div>

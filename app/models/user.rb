@@ -54,10 +54,15 @@ class User < ApplicationRecord
     where(department_id: manager.department_id).where.not(id: manager.id)
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
   scope :manager_count, ->{where(role: :manager).count}
   scope :user_count, ->{where(role: :user).count}
 =======
 >>>>>>> 4a99617 ([Manager] Quản lý danh sách báo cáo công việc của nhân viên)
+=======
+  scope :manager_count, ->{where(role: :manager).count}
+  scope :user_count, ->{where(role: :user).count}
+>>>>>>> efdf7a7 (User dashboard)
 
   class << self
     def digest string
