@@ -22,6 +22,7 @@ en:
       submit: "Save Changes"
       cancel: "Cancel"
       updated_successfully: "Department updated successfully."
+      forbidden_department: "You do not belong to any department!"
     new:
       title: "Add New Department"
       submit: "Create"

@@ -21,6 +21,7 @@ vi:
       title: "Chỉnh sửa bộ phận"
       submit: "Lưu thay đổi"
       cancel: "Hủy"
+      forbidden_department: "Bạn không thuộc về bộ phận nào!"
       updated_successfully: "Cập nhật thông tin bộ phận thành công."
     new:
       title: "Thêm bộ phận mới"
