@@ -13,6 +13,8 @@ class User::DailyReportsController < ApplicationController
     @daily_report = current_user.sent_reports.build daily_report_params
 
     if @daily_report.save
+      DailyReportMailer.notify_manager(@daily_report).deliver_later
+
       flash[:success] = t "daily_report.create.success"
       redirect_to user_daily_reports_path
     else
@@ -32,9 +34,9 @@ class User::DailyReportsController < ApplicationController
   def edit; end
 
   def update
-    if @daily_report.update(daily_report_params)
+    if @daily_report.update daily_report_params
       flash[:success] = t "daily_report.update.success"
-      redirect_to [:user, @daily_report]
+      redirect_to manager_daily_reports_path
     else
       flash.now[:danger] = t "daily_report.update.failure"
       render :edit, status: :unprocessable_entity

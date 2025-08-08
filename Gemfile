@@ -51,6 +51,7 @@ gem "bootsnap", require: false
 gem "bcrypt", "3.1.18"
 gem "bootstrap-sass", "3.4.1"
 gem "config"
+gem "dotenv-rails"
 gem "i18n-js", "<= 3.9.2"
 gem "jquery-rails"
 gem "pagy"
