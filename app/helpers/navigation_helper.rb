@@ -7,65 +7,92 @@ module NavigationHelper
   private
 
   def nav_items
+    raw_nav_item_data.map do |item|
+      build_nav_item(item[:label], item[:path], item[:icon], item[:roles])
+    end
+  end
+
+  def filter_items_by_role items, role
+    items.select{|item| item[:roles].include?(role.to_s)}
+  end
+
+  def build_nav_item label, path, icon, roles
+    {
+      label: t("nav_items.#{label}"),
+      path:,
+      icon:,
+      roles:
+    }
+  end
+
+  def raw_nav_item_data
     [
       {
-        label: t("nav_items.dashboard"),
-        path: root_path,
+        label: "dashboard",
+        path: admin_dashboard_show_path,
         icon: "tachometer-alt",
-        roles: %w(admin manager user)
-      },
-      {
-        label: t("nav_items.departments"),
-        path: admin_departments_path,
-        icon: "home",
         roles: %w(admin)
       },
       {
-        label: t("nav_items.departments"),
-        path: manager_departments_path,
-        icon: "home",
+        label: "dashboard",
+        path: user_dashboard_show_path,
+        icon: "tachometer-alt",
+        roles: %w(user)
+      },
+      {
+        label: "dashboard",
+        path: manager_dashboard_show_path,
+        icon: "tachometer-alt",
         roles: %w(manager)
       },
       {
-        label: t("nav_items.users"),
-        path: admin_users_path,
-        icon: "users",
-        roles: %w(admin)
-      },
-      {
-        label: t("nav_items.users"),
-        path: manager_users_path,
-        icon: "users",
-        roles: %w(manager)
-      },
-      {
-        label: t("nav_items.reports"),
+        label: "reports",
         path: manager_daily_reports_path,
         icon: "file",
         roles: %w(manager)
       },
       {
-        label: t("nav_items.reports"),
+        label: "departments",
+        path: admin_departments_path,
+        icon: "home",
+        roles: %w(admin)
+      },
+      {
+        label: "departments",
+        path: manager_departments_path,
+        icon: "home",
+        roles: %w(manager)
+      },
+      {
+        label: "users",
+        path: admin_users_path,
+        icon: "users",
+        roles: %w(admin)
+      },
+      {
+        label: "users",
+        path: manager_users_path,
+        icon: "users",
+        roles: %w(manager)
+      },
+      {
+        label: "reports",
         path: user_daily_reports_path,
         icon: "file",
         roles: %w(user)
       },
       {
-        label: t("nav_items.help"),
-        path: help_path,
+        label: "help",
+        path: root_path,
         icon: "handshake-angle",
         roles: %w(admin manager user)
       },
       {
-        label: t("nav_items.logout"),
+        label: "logout",
         path: nil,
         icon: "sign-out",
         roles: %w(admin manager user)
       }
     ]
-  end
-
-  def filter_items_by_role items, role
-    items.select{|item| item[:roles].include?(role.to_s)}
   end
 end

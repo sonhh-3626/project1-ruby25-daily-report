@@ -19,6 +19,9 @@
   </div>
 </div>
 
+
+<%= daily_report_status_badge @daily_report %>
+
 <%= render partial: "shared/section", locals: {
       title: t("daily_report.show.planned_tasks"),
       content: @daily_report.planned_tasks

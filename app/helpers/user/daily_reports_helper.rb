@@ -59,4 +59,50 @@ module User::DailyReportsHelper
       content_tag(:i, "", class: "fas fa-trash-alt")
     end
   end
+
+  def daily_report_status_badge daily_report
+    if daily_report.status_read?
+      content_tag(:div, class: "alert alert-info") do
+        "#{content_tag(:i, '', class: 'fas fa-check')} "\
+          "#{t('daily_report.show.read')}"
+      end
+    elsif daily_report.status_commented?
+      content_tag(:div, class: "alert alert-success") do
+        "#{content_tag(:i, '', class: 'fas fa-pen')} "\
+          "#{t('daily_report.show.commented')}"
+      end
+    else
+      content_tag(:div, class: "alert alert-warning") do
+        "#{content_tag(:i, '', class: 'fas fa-exclamation-triangle')} "\
+          "#{t('daily_report.show.pending')}"
+      end
+    end
+  end
+
+  def daily_reports_calendar_show daily_reports
+    month_calendar(events: daily_reports,
+                   attribute: :report_date) do |date, reports|
+      content_tag(:div, class: "day") do
+        report = reports.first
+
+        if report.present?
+          status_class =
+            case report.status.to_sym
+            when :read      then "bg-info text-white"
+            when :commented then "bg-success text-white"
+            when :pending   then "bg-warning text-dark"
+            else "bg-light"
+            end
+
+          link_to(
+            report.report_date.day,
+            user_daily_report_path(report),
+            class: "btn #{status_class} w-100 mb-2"
+          )
+        else
+          content_tag(:span, date.day, class: "text-muted")
+        end
+      end
+    end
+  end
 end

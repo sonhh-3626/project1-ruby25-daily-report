@@ -1,0 +1,21 @@
+en:
+  dashboard:
+    title: "Dashboard"
+    user_info: "User Information"
+    name: "Name"
+    email: "Email"
+    role: "Role"
+    admin:
+      system_info: "System Information"
+      departments: "Departments"
+      managers: "Managers"
+      total_users: "Total Users"
+    manager:
+      department_info: "Department Information"
+      department_name: "Department Name"
+      staff_count: "Total Staff"
+      pending_reports: "Pending Reports"
+    user:
+      department: "Department"
+      manager: "Manager"
+      daily_report_progress: "Daily Report Progress"
