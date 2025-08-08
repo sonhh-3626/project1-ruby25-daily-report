@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       resources :daily_reports, only: %i(edit index update)
     end
     namespace :user do
+      get "dashboard/show", to: "dashboard#show"
       resources :daily_reports
     end
   end

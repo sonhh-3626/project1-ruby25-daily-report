@@ -54,6 +54,7 @@ gem "config"
 gem "i18n-js", "<= 3.9.2"
 gem "jquery-rails"
 gem "pagy"
+gem "simple_calendar"
 gem "rails-i18n"
 
 group :development, :test do

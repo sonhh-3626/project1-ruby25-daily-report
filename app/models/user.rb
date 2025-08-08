@@ -53,6 +53,8 @@ class User < ApplicationRecord
   scope :get_staff_members, lambda {|manager|
     where(department_id: manager.department_id).where.not(id: manager.id)
   }
+  scope :manager_count, ->{where(role: :manager).count}
+  scope :user_count, ->{where(role: :user).count}
 
   class << self
     def digest string

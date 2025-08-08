@@ -3,7 +3,7 @@ class Admin::DashboardController < ApplicationController
 
   def show
     @departments_count = Department.count
-    @managers_count = User.where(role: :manager).count
-    @users_count = User.where(role: :user).count
+    @managers_count = User.manager_count
+    @users_count = User.user_count
   end
 end

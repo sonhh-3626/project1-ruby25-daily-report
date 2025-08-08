@@ -16,6 +16,12 @@ module NavigationHelper
       },
       {
         label: t("nav_items.dashboard"),
+        path: user_dashboard_show_path,
+        icon: "tachometer-alt",
+        roles: %w(user)
+      },
+      {
+        label: t("nav_items.dashboard"),
         path: manager_dashboard_show_path,
         icon: "tachometer-alt",
         roles: %w(manager)
