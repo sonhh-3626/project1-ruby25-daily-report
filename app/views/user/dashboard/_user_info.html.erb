@@ -1,0 +1,14 @@
+<div class="col-md-4">
+  <div class="card mb-4">
+    <div class="card-header bg-primary text-white">
+      <i class="bi bi-person"></i> <%= t "dashboard.user.user_info" %>
+    </div>
+    <div class="card-body">
+      <p><strong><%= t "dashboard.user.name" %>:</strong> <%= current_user.name %></p>
+      <p><strong><%= t "dashboard.user.email" %>:</strong> <%= current_user.email %></p>
+      <p><strong><%= t "dashboard.user.department" %>:</strong> <%= current_user.department&.name %></p>
+      <p><strong><%= t "dashboard.user.manager" %>:</strong> <%= current_user.manager&.name %></p>
+      <p><strong><%= t "dashboard.user.manager_email" %>:</strong> <%= current_user.manager&.email %></p>
+    </div>
+  </div>
+</div>
