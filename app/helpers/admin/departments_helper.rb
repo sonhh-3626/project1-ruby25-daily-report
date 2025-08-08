@@ -1,5 +1,5 @@
 module Admin::DepartmentsHelper
-  def department_action_buttons department
+  def admin_department_action_buttons department
     content_tag(:div, class: "btn-group") do
       link_to(
         admin_department_path(department),
@@ -17,7 +17,7 @@ module Admin::DepartmentsHelper
         admin_department_path(department),
         data: {
           "turbo-method": :delete,
-          "turbo-confirm": t("departments.new.confirm_delete")
+          "turbo-confirm": t("departments.index.confirm_delete")
         },
         class: "btn btn-sm btn-outline-danger",
         title: t("departments.index.delete")

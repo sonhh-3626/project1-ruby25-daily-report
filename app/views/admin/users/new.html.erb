@@ -1,4 +1,7 @@
-<%= form_with model: @user, url: admin_user_path(@user), local: true do |f| %>
+<h1 class="text-center"><%= t "users.new.title" %></h1>
+
+<%= form_with model: [:admin, @user], url: admin_users_path, method: :post, local: true do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
   <div class="form-group">
     <%= f.label :name, t("users.form.name") %>
     <%= f.text_field :name, class: "form-control" %>
@@ -8,6 +11,8 @@
     <%= f.label :email, t("users.form.email") %>
     <%= f.email_field :email, class: "form-control" %>
   </div>
+
+  <%= f.hidden_field :password, value: @generated_password %>
 
   <div class="form-group">
     <%= f.label :role, t("users.form.role") %>

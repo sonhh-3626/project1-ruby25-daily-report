@@ -17,6 +17,10 @@ vi:
         submit: "Lọc"
         reset: "Đặt lại"
       add_new_member_btn: "Thêm thành viên mới"
+      import_btn: "Nhập người dùng"
+      show: "Xem"
+      edit: "Sửa"
+      no_users: "Không có người dùng nào khả dụng."
     show:
       title: "Thông tin người dùng"
       back: "Quay lại danh sách"
@@ -26,7 +30,9 @@ vi:
     form:
       name: "Tên"
       email: "Email"
+      password_confirmation: "Xác nhận mật khẩu"
       role: "Vai trò"
+      active: "Trạng thái hoạt động"
       save: "Lưu thay đổi"
       no_department: "-- Không thuộc bộ phận nào --"
     roles:
@@ -41,6 +47,7 @@ vi:
       be_user: "Vai trò của bạn là User. Không thể thực hiện chức năng này!"
       delete_failed: "Thất bại loại người này ra khỏi bộ phận."
       password_length: "Mật khẩu phải có ít nhất %{count} ký tự."
+      email_already_exists: "Email đã tồn tại."
     assign:
       success: "Thêm vào bộ phận thành công!"
       fail: "Thất bại! Chưa hoàn tất thêm vào bộ phận."
@@ -49,8 +56,39 @@ vi:
     new:
       title: "Thêm thành viên mới vào bộ phận"
       no_user_for_assign: "Không có người dùng nào để gán vào bộ phận"
-      confirm_delete: "Xác nhận loại bỏ nhân viên này ra khói?"
+      confirm_unactive: "Xác nhận vô hiệu hóa tài khoản nhân viên này ra khói?"
       choose_user: "Chọn user..."
       choose_department: "Chọn department..."
       department: "Bộ phận"
       select_user: "Lựa chọn thành viên"
+    create:
+      success: "Tạo người dùng thành công!"
+      fail: "Tạo người dùng thất bại. Vui lòng thử lại."
+    delete:
+      success: "Xóa người dùng thành công!"
+      fail: "Xóa người dùng thất bại. Vui lòng thử lại."
+    unactive:
+      success: "Hủy kích hoạt người dùng thành công!"
+      fail: "Hủy kích hoạt người dùng thất bại. Vui lòng thử lại."
+    active: "Trạng thái hoạt động"
+    inactive: "Trạng thái không hoạt động"
+    import:
+      success: "Nhập người dùng thành công"
+      failed: "Nhập người dùng thất bại"
+      no_file: "Vui lòng chọn tệp để tải lên"
+    mailers:
+      welcome_email:
+        subject: "Chào mừng đến với Hệ thống Báo cáo Hàng ngày!"
+        greeting: "Xin chào %{name},"
+        body_html_1: "Chào mừng bạn đến với Hệ thống Báo cáo Hàng ngày! Tài khoản của bạn đã được tạo thành công."
+        body_html_2: "Đây là thông tin đăng nhập của bạn:"
+        email: "Email"
+        password: "Mật khẩu"
+        body_html_3: "Vui lòng giữ thông tin này an toàn."
+        body_html_4: "Bạn có thể đăng nhập bằng thông tin đã cung cấp."
+        log_in_here: "Bạn có thể đăng nhập tại đây:"
+        log_in_link: "Đăng nhập"
+        thanks_for_joining: "Cảm ơn bạn đã tham gia!"
+        body_text_1: "Tài khoản của bạn đã được tạo thành công."
+        body_text_2: "Vui lòng giữ thông tin này an toàn."
+        body_text_3: "Bạn có thể đăng nhập bằng thông tin đã cung cấp."

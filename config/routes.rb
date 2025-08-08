@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     namespace :admin do
       get "dashboard/show", to: "dashboard#show"
       resources :departments
-      resources :users, only: %i(index edit update)
+      resources :users
     end
     namespace :manager do
       get "dashboard/show", to: "dashboard#show"
