@@ -1,5 +1,6 @@
 class User::DailyReportsController < ApplicationController
-  before_action :check_user_role
+  before_action :check_user_role, :logged_in_user
+  before_action :belongs_department?, except: %i(index)
   before_action :set_daily_report, only: %i(show edit update destroy)
   before_action :filter_daily_reports, only: :index
   before_action :check_status, only: :edit
@@ -77,5 +78,12 @@ class User::DailyReportsController < ApplicationController
 
     flash[:danger] = t "daily_report.edit.forbidden_status"
     redirect_to user_daily_reports_path, status: :see_other
+  end
+
+  def belongs_department?
+    unless current_user.department_id.present?
+      flash[:danger] = t "departments.edit.forbidden_department"
+      redirect_to user_daily_reports_path, status: :see_other
+    end
   end
 end
