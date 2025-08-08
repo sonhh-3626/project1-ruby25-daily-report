@@ -1,0 +1,11 @@
+en:
+  admin:
+    dashboard:
+      user_info: "User Information"
+      name: "Name"
+      email: "Email"
+      role: "Role"
+      system_info: "System Information"
+      departments: "Number of Departments"
+      managers: "Number of Managers"
+      users: "Total Users"

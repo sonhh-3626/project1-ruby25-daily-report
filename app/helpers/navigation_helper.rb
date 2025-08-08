@@ -10,9 +10,9 @@ module NavigationHelper
     [
       {
         label: t("nav_items.dashboard"),
-        path: root_path,
+        path: admin_dashboard_show_path,
         icon: "tachometer-alt",
-        roles: %w(admin manager user)
+        roles: %w(admin)
       },
       {
         label: t("nav_items.departments"),
@@ -52,7 +52,7 @@ module NavigationHelper
       },
       {
         label: t("nav_items.help"),
-        path: help_path,
+        path: root_path,
         icon: "handshake-angle",
         roles: %w(admin manager user)
       },
