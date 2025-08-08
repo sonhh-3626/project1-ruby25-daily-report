@@ -41,7 +41,7 @@ class SessionsController < ApplicationController
     reset_session
     handle_remember_me_for @user
     log_in @user
-    redirect_to root_path
+    redirect_to session[:forwarding_url] || root_path
     flash[:success] = t "session.login.success"
   end
 

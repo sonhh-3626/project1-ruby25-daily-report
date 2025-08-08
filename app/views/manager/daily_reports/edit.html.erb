@@ -5,7 +5,7 @@
 <%= form_with model: [:manager, @daily_report], local: true do |f| %>
   <div class="mb-3">
     <%= f.label :manager_notes, t("daily_report.form.manager_notes"), class: "form-label" %>
-    <%= f.text_area :manager_notes, class: "form-control", rows: 5 %>
+    <%= f.text_area :manager_notes, class: "form-control", rows: Settings.TEXT_AREA_ROWS_5 %>
   </div>
 
   <%= f.submit t("daily_report.form.mark_as_read"), class: "btn btn-primary" %>
