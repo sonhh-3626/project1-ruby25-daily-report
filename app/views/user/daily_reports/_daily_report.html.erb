@@ -7,8 +7,8 @@
       <%= daily_report.status.titleize %>
     </span>
   </td>
-  <td><%= daily_report.receiver&.name %></td>
-  <td><%= truncate(daily_report.planned_tasks, length: Settings.MIN_LENGTH_TEXT_20) %></td>
-  <td><%= daily_report.reviewed_at.present? ? l(daily_report.reviewed_at, format: :short) : "-" %></td>
+  <td><%= daily_report.receiver&.name || none_content %></td>
+  <td><%= truncate(daily_report.planned_tasks, length: Settings.MIN_LENGTH_TEXT_20) || none_content %></td>
+  <td><%= daily_report.reviewed_at.present? ? l(daily_report.reviewed_at, format: :short) : none_content %></td>
   <td><%= daily_report_action_buttons daily_report %></td>
 </tr>
