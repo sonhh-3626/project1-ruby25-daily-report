@@ -11,8 +11,8 @@ class DailyReport < ApplicationRecord
   MANAGER_NOTE_PARAM = :manager_notes
 
   validates :planned_tasks, :actual_tasks, :next_day_planned_tasks,
-            length: {minimum: Settings.MIN_LENGTH_TEXT_20}
-
+            length: {minimum: Settings.MIN_LENGTH_TEXT_20},
+            presence: true
   validates :report_date, presence: true
   validate :unique_report_per_day
 

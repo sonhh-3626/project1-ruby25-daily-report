@@ -18,6 +18,7 @@ class User::DailyReportsController < ApplicationController
       flash[:success] = t "daily_report.create.success"
       redirect_to user_daily_reports_path
     else
+      flash.now[:danger] = @daily_report.errors.full_messages.to_sentence
       render :new, status: :unprocessable_entity
     end
   end

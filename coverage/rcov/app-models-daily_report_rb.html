@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <title>app/models/daily_report.rb</title>
+    <link href="./assets/0.3.7/screen.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="./assets/0.3.7/print.css" media="print" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <script type="text/javascript" src="./assets/0.3.7/rcov.js"></script>
+  </head>
+  <body>
+    <h1>Project1-ruby25-daily-report C0 Coverage Information - Simploco - RCov</h1>
+    <h2>app/models/daily_report.rb</h2>
+
+    <div class="report_table_wrapper">
+      <table class='report' id='report_table'>
+        <thead>
+          <tr>
+            <th class="left_align">Name</th>
+            <th class="right_align">Total Lines</th>
+            <th class="right_align">Lines of Code</th>
+            <th class="left_align">Total Coverage</th>
+            <th class="left_align">Code Coverage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="left_align"><a href="app-models-daily_report_rb.html">app/models/daily_report.rb</a></td>
+            <td class='right_align'><tt>59</tt></td>
+            <td class='right_align'><tt>50</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>15.25%</tt></div>
+      <div class="percent_graph">
+        <div class="covered" style="width:15px"></div>
+        <div class="uncovered" style="width:85px"></div>
+      </div></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>0.00%</tt></div>
+      <div class="percent_graph">
+        <div class="covered" style="width:0px"></div>
+        <div class="uncovered" style="width:100px"></div>
+      </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Key</h3>
+
+    <div class="key"><pre><span class='marked'>Code reported as executed by Ruby looks like this...</span><span class='marked1'>and this: this line is also marked as covered.</span><span class='inferred'>Lines considered as run by rcov, but not reported by Ruby, look like this,</span><span class='inferred1'>and this: these lines were inferred by rcov (using simple heuristics).</span><span class='uncovered'>Finally, here's a line marked as not executed.</span></pre></div>
+
+    <h3>Coverage Details</h3>
+
+    <table class="details">
+      <tbody>
+        <tr class="uncovered">
+          <td><pre><a name="line2">2</a> class DailyReport &lt; ApplicationRecord</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line3">3</a>   belongs_to :owner, class_name: User.name</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line4">4</a>   belongs_to :receiver, class_name: User.name</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line5">5</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line6">6</a>   enum status: Settings.daily_report_status.to_h, _prefix: true</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line7">7</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line8">8</a>   DAILY_REPORT_PARAMS = %w(receiver_id owner_id report_date</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line9">9</a>                            planned_tasks actual_tasks</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line10">10</a>                            incomplete_reason</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line11">11</a>                            next_day_planned_tasks).freeze</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line12">12</a>   MANAGER_NOTE_PARAM = :manager_notes</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line13">13</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line14">14</a>   validates :planned_tasks, :actual_tasks, :next_day_planned_tasks,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line15">15</a>             length: {minimum: Settings.MIN_LENGTH_TEXT_20},</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line16">16</a>             presence: true</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line17">17</a>   validates :report_date, presence: true</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line18">18</a>   validate :unique_report_per_day</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line19">19</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line20">20</a>   scope :order_created_at_desc, -&gt;{order(created_at: :desc)}</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line21">21</a>   scope :by_status, lambda{|status|</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line22">22</a>     where(status:) if status.present? &amp;&amp; statuses.key?(status)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line23">23</a>   }</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line24">24</a>   scope :by_report_date, lambda{|date|</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line25">25</a>     where(report_date: date) if date.present?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line26">26</a>   }</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line27">27</a>   scope :by_owner_id, -&gt;(owner_id){where(owner_id:) if owner_id.present?}</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line28">28</a>   scope :filter_by_report_date, lambda{|report_date|</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line29">29</a>     where(report_date:) if report_date.present?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line30">30</a>   }</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line31">31</a>   scope :filter_by_status, lambda{|status|</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line32">32</a>     where(status:) if status.present?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line33">33</a>   }</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line34">34</a>   scope :filter_by_owner, lambda{|user_id|</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line35">35</a>     where(owner_id: user_id) if user_id.present?</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line36">36</a>   }</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line37">37</a>   scope :count_by_status_pending, lambda{|current_user|</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line38">38</a>     where(status: :pending, receiver: current_user).count</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line39">39</a>   }</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line40">40</a>   scope :in_month, lambda{|date|</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line41">41</a>     where(report_date: date.beginning_of_month..date.end_of_month)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line42">42</a>   }</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line43">43</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line44">44</a>   private</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line45">45</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line46">46</a>   def unique_report_per_day</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line47">47</a>     return if report_date.blank? || owner_id.blank?</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line48">48</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line49">49</a>     existing = DailyReport.where(owner_id:, report_date:)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line50">50</a>                           .where.not(id:)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line51">51</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line52">52</a>     return unless existing.exists?</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line53">53</a> </pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line54">54</a>     errors.add(</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line55">55</a>       :report_date,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line56">56</a>       :taken,</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line57">57</a>       message: I18n.t(&quot;daily_report.create.error_report_date&quot;)</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line58">58</a>     )</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line59">59</a>   end</pre></td>
+        </tr>
+        <tr class="uncovered">
+          <td><pre><a name="line60">60</a> end</pre></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Generated on 2025-08-19 15:49:24 +0700 with <a href="https://github.com/fguillen/simplecov-rcov">SimpleCov-RCov 0.3.7</a></p>
+
+  </body>
+</html>

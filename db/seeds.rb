@@ -51,51 +51,18 @@ report_dates.each_with_index do |date, i|
   owner = [user1, user2].sample
   next if DailyReport.exists?(owner: owner, report_date: date)
 
-<<<<<<< HEAD
-=======
-new_user = User.create!(
-  name: "New user 1",
-  email: "newuser@gmail.com",
-  role: 0,
-  password: "123456"
-)
-
-# Daily reports
-user1 = User.first
-user2 = User.second
-
-report_dates = 10.days.ago.to_date.upto(Date.today).to_a.sample(10)
-
-report_dates.each_with_index do |date, i|
-  owner = [user1, user2].sample
-
-  next if DailyReport.exists?(owner: owner, report_date: date)
-
->>>>>>> 4a99617 ([Manager] Quản lý danh sách báo cáo công việc của nhân viên)
   DailyReport.create!(
     owner: owner,
     receiver: manager,
     report_date: date,
-<<<<<<< HEAD
-=======
-    status: DailyReport.statuses.keys.sample,
->>>>>>> 4a99617 ([Manager] Quản lý danh sách báo cáo công việc của nhân viên)
     planned_tasks: "Plan for day #{i + 1} ----------------------------------------------------",
     actual_tasks: "Did tasks #{i + 1} ----------------------------------------------------",
     incomplete_reason: i.even? ? "Blocked by issue" : nil,
     next_day_planned_tasks: "Next plan #{i + 2}----------------------------------------------------",
-<<<<<<< HEAD
     manager_notes: (notes = i.odd? ? "Looks good." : nil),
     status: notes.present? ? :commented : :pending,
-=======
-    manager_notes: i.odd? ? "Looks good." : nil,
->>>>>>> 4a99617 ([Manager] Quản lý danh sách báo cáo công việc của nhân viên)
     reviewed_at: Time.current - rand(1..5).days
   )
 end
 
-<<<<<<< HEAD
 puts "Seeded sample users and daily reports!"
-=======
-puts "✅ Seeded sample users and daily reports!"
->>>>>>> 4a99617 ([Manager] Quản lý danh sách báo cáo công việc của nhân viên)

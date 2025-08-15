@@ -58,12 +58,19 @@ gem "pagy"
 gem "simple_calendar"
 gem "rails-i18n"
 gem "simple_calendar"
+gem "rspec-core"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html
   gem "debug", platforms: %i(mri mingw x64_mingw)
   gem "rubocop", "~> 1.26", require: false
   gem "rubocop-checkstyle_formatter", require: false
   gem "rubocop-rails", "~> 2.14.0", require: false
+  gem "simplecov", require: false
+  gem "simplecov-rcov", require: false
+  gem "rspec-rails"
+  gem "factory_bot_rails"
+  gem "rails-controller-testing"
 end
 
 group :development do
