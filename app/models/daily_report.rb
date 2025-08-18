@@ -33,6 +33,12 @@ class DailyReport < ApplicationRecord
   scope :filter_by_owner, lambda{|user_id|
     where(owner_id: user_id) if user_id.present?
   }
+  scope :count_by_status_pending, lambda{|current_user|
+    where(status: :pending, receiver: current_user).count
+  }
+  scope :in_month, lambda{|date|
+    where(report_date: date.beginning_of_month..date.end_of_month)
+  }
 
   private
 

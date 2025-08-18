@@ -1,0 +1,21 @@
+vi:
+  dashboard:
+    title: "Bảng điều khiển"
+    user_info: "Thông tin người dùng"
+    system_info: "Thông tin hệ thống"
+    name: "Tên"
+    email: "Email"
+    role: "Vai trò"
+    admin:
+      departments: "Số bộ phận"
+      managers: "Số quản lý"
+      total_users: "Tổng số người dùng"
+    manager:
+      department_info: "Thông tin bộ phận"
+      department_name: "Tên bộ phận"
+      staff_count: "Tổng số nhân viên"
+      pending_reports: "Báo cáo chờ duyệt"
+    user:
+      department: "Bộ phận"
+      manager: "Quản lý"
+      daily_report_progress: "Tiến độ báo cáo hàng ngày"
