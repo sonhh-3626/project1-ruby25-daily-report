@@ -1,6 +1,6 @@
 <div class="card mb-4">
   <div class="card-header bg-primary text-white">
-    <i class="fas fa-user"></i> <%= t("daily_report.show.report_info") %>
+    <i class="fas fa-user"></i> <%= t "daily_report.show.report_info" %>
   </div>
   <div class="card-body">
     <dl class="row mb-0">
@@ -26,7 +26,7 @@
 
 <%= render partial: "shared/section", locals: {
       title: t("daily_report.show.actual_tasks"),
-      content: truncate(@daily_report.actual_tasks, length: 20)
+      content: @daily_report.actual_tasks
     } %>
 
 <%= render partial: "shared/section", locals: {
@@ -38,3 +38,10 @@
       title: t("daily_report.show.next_day_tasks"),
       content: @daily_report.next_day_planned_tasks
     } %>
+
+<% if @daily_report.manager_notes.present? %>
+  <%= render partial: "shared/section", locals: {
+        title: t("daily_report.show.manager_notes"),
+        content: @daily_report.manager_notes
+      } %>
+<% end %>

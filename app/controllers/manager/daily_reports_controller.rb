@@ -1,4 +1,5 @@
 class Manager::DailyReportsController < ApplicationController
+  before_action :logged_in_user, :manager_user
   before_action :set_daily_report, only: %i(edit update)
   before_action :set_staff_members, :filter_daily_reports, only: :index
 
@@ -29,6 +30,7 @@ class Manager::DailyReportsController < ApplicationController
     new_notes = dr_params[:manager_notes]&.strip
     old_notes = @daily_report.manager_notes&.strip
     dr_params[:status] = update_status new_notes, old_notes
+    dr_params[:reviewed_at] = Time.current if dr_params[:status] != :pending
     dr_params
   end
 

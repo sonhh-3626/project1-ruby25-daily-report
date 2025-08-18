@@ -1,0 +1,30 @@
+<p><%= t "daily_report.mail.cc", name: @manager.name %></p>
+
+<p>
+  <strong><%= @user.name %></strong>
+  <%= @daily_report.created_at == @daily_report.updated_at ? t("daily_report.mail.created") : t("daily_report.mail.updated") %>
+  <%= t("daily_report.mail.for_date", date: l(@daily_report.report_date, format: :long)) %>.
+</p>
+
+<p><%= t "daily_report.mail.task_content" %>:</p>
+<ul>
+  <li><strong><%= t "daily_report.mail.plan" %>:</strong> <%= @daily_report.planned_tasks %></li>
+  <li><strong><%= t "daily_report.mail.actual" %>:</strong> <%= @daily_report.actual_tasks %></li>
+  <% if @daily_report.incomplete_reason.present? %>
+    <li><strong><%= t "daily_report.mail.incomplete_reason" %>:</strong> <%= @daily_report.incomplete_reason %></li>
+  <% end %>
+  <% if @daily_report.next_day_planned_tasks.present? %>
+    <li><strong><%= t "daily_report.mail.next_day_plan" %>:</strong> <%= @daily_report.next_day_planned_tasks %></li>
+  <% end %>
+  <% if @daily_report.manager_notes.present? %>
+    <li><strong><%= t "daily_report.mail.manager_notes" %>:</strong> <%= @daily_report.manager_notes %></li>
+  <% end %>
+</ul>
+
+<p>
+  <%= t "daily_report.mail.view_report" %>:
+  <%= link_to t("daily_report.mail.view_button"),
+      edit_manager_daily_report_url(@daily_report, locale: I18n.locale) %>
+</p>
+
+<p><%= t "daily_report.mail.regards" %>,<br><%= t "daily_report.mail.system_name" %></p>

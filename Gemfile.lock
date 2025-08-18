@@ -99,6 +99,10 @@ GEM
       irb (>= 1.5.0)
       reline (>= 0.3.1)
     deep_merge (1.2.2)
+    dotenv (3.1.8)
+    dotenv-rails (3.1.8)
+      dotenv (= 3.1.8)
+      railties (>= 6.1)
     erubi (1.12.0)
     execjs (2.10.0)
     ffi (1.17.2-x86_64-linux-gnu)
@@ -273,6 +277,7 @@ DEPENDENCIES
   capybara
   config
   debug
+  dotenv-rails
   i18n-js (<= 3.9.2)
   importmap-rails
   jbuilder
