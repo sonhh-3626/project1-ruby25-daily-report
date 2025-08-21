@@ -4,14 +4,19 @@
   <td>
     <% if user.manager? %>
       <%= t "users.roles.manager" %>
-    <% else %>
+    <% elsif user.user? %>
       <%= t "users.roles.user" %>
+    <% end %>
+  </td>
+  <td>
+    <% if user.active? %>
+      <span class="badge bg-success"><%= t "users.active" %></span>
+    <% else %>
+      <span class="badge bg-secondary"><%= t "users.inactive" %></span>
     <% end %>
   </td>
   <td><%= user.department_name if user.department.present? %></td>
   <td>
-    <%= link_to edit_admin_user_path(user), class: "btn btn-sm btn-outline-warning", title: t("users.index.edit") do %>
-      <i class="fas fa-edit"></i>
-    <% end %>
+    <%= admin_user_action_buttons user %>
   </td>
 </tr>

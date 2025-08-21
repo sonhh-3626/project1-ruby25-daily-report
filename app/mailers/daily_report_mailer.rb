@@ -1,6 +1,4 @@
 class DailyReportMailer < ApplicationMailer
-  default from: ENV["GMAIL_USERNAME"]
-
   def notify_manager daily_report
     @daily_report = daily_report
     @user = daily_report.owner

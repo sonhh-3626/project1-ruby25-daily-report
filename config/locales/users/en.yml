@@ -17,6 +17,10 @@ en:
         submit: "Filter"
         reset: "Reset"
       add_new_member_btn: "Add new member"
+      import_btn: "Import Users"
+      show: "Show"
+      edit: "Edit"
+      no_users: "No users available."
     show:
       title: "User information"
       back: "Back to list"
@@ -26,7 +30,9 @@ en:
     form:
       name: "Name"
       email: "Email"
+      password_confirmation: "Password Confirmation"
       role: "Role"
+      active: "Active"
       save: "Save Changes"
       no_department: "-- No Department --"
     roles:
@@ -41,6 +47,7 @@ en:
       be_user: "Your role is User. No right!"
       delete_failed: "Failed to remove this user from the department."
       password_length: "Please enter a password with sufficient %{count} length."
+      email_already_exists: "Email already exists."
     assign:
       success: "Successfully added to the department!"
       fail: "Failed! Could not complete the assignment to the department."
@@ -54,3 +61,34 @@ en:
       choose_department: "Choose department..."
       department: "Department"
       select_user: "Select user"
+    create":
+      success: "User successfully created!"
+      fail: "Failed to create user. Please try again."
+    delete:
+      success: "User successfully deleted!"
+      fail: "Failed to delete user. Please try again."
+    unactive:
+      success: "User successfully unactivated!"
+      fail: "Failed to unactivate user. Please try again."
+    active: "Active"
+    inactive: "Inactive"
+    import:
+      success: "Users imported successfully"
+      failed: "Import failed"
+      no_file: "Please choose a file to upload"
+    mailers:
+      welcome_email:
+        subject: "Welcome to the Daily Report System!"
+        greeting: "Hello %{name},"
+        body_html_1: "Welcome to the Daily Report System! Your account has been successfully created."
+        body_html_2: "Here are your login details:"
+        email: "Email"
+        password: "Password"
+        body_html_3: "Please keep this information secure."
+        body_html_4: "You can log in using the provided credentials."
+        log_in_here: "You can log in here:"
+        log_in_link: "Log in"
+        thanks_for_joining: "Thanks for joining!"
+        body_text_1: "Your account has been successfully created."
+        body_text_2: "Please keep this information secure."
+        body_text_3: "You can log in using the provided credentials."

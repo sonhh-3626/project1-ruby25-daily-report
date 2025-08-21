@@ -1,18 +1,27 @@
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= t "users.index.table.name" %></th>
-      <th><%= t "users.index.table.email" %></th>
-      <th><%= t "users.index.table.role" %></th>
-      <th><%= t "users.index.table.department" %></th>
-      <th><%= t "users.index.table.actions" %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render @users %>
-  </tbody>
-</table>
+<% if @users.empty? %>
+  <tr>
+    <td colspan="6" class="text-center">
+      <%= t "users.index.no_users" %>
+    </td>
+  </tr>
+<% else %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= t "users.index.table.name" %></th>
+        <th><%= t "users.index.table.email" %></th>
+        <th><%= t "users.index.table.role" %></th>
+        <th><%= t "users.index.table.active" %></th>
+        <th><%= t "users.index.table.department" %></th>
+        <th><%= t "users.index.table.actions" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @users %>
+    </tbody>
+  </table>
 
-<div class="d-flex text-center mt-4">
-  <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
-</div>
+  <div class="d-flex text-center mt-4">
+    <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
+  </div>
+<% end %>

@@ -19,7 +19,10 @@ class User < ApplicationRecord
             presence: true,
             format: {with: Rails.application.config.email_regex},
             length: {maximum: Settings.MAX_LENGTH_EMAIL},
-            uniqueness: {case_sensitive: false}
+            uniqueness: {
+              case_sensitive: false,
+              message: I18n.t("users.errors.email_already_exists")
+            }
 
   validates :password,
             presence: true,
@@ -37,8 +40,10 @@ class User < ApplicationRecord
   delegate :manager, to: :department, allow_nil: true
   delegate :name, to: :manager, prefix: true, allow_nil: true
 
-  USER_PARAMS = %w(name email role department_id).freeze
+  USER_PARAMS = %w(name email role department_id active).freeze
+  USER_PARAMS_WITH_PW = USER_PARAMS + %w(password).freeze
 
+  scope :not_admin, ->{where.not(role: :admin)}
   scope :filter_by_role, ->(role){where(role:) if role.present?}
   scope :filter_by_department, lambda {|department_id|
     where(department_id:) if department_id.present?
