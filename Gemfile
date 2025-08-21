@@ -66,11 +66,6 @@ group :development, :test do
   gem "rubocop", "~> 1.26", require: false
   gem "rubocop-checkstyle_formatter", require: false
   gem "rubocop-rails", "~> 2.14.0", require: false
-  gem "simplecov", require: false
-  gem "simplecov-rcov", require: false
-  gem "rspec-rails"
-  gem "factory_bot_rails"
-  gem "rails-controller-testing"
 end
 
 group :development do

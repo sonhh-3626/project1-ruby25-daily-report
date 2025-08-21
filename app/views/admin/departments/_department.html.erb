@@ -1,9 +1,8 @@
 <tr>
+  <td><%= pagy.from + local_assigns[:department_counter] %></td>
   <td><%= department.name %></td>
-  <td><%= department.description %></td>
   <td><%= department.users.count %></td>
-  <td><%= l(department.created_at, format: :short) %></td>
-  <td><%= l(department.updated_at, format: :short) %></td>
+  <td><%= department.description %></td>
   <td class="d-flex gap-1">
     <%= department_action_buttons department %>
   </td>

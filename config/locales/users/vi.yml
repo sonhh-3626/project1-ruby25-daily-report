@@ -9,6 +9,7 @@ vi:
         role: "Vai trò"
         department: "Bộ phận"
         actions: "Hành động"
+        order: "STT"
         no_result: "Không tìm thấy người dùng nào."
       filter:
         role: "Vai trò"

@@ -42,3 +42,7 @@ vi:
       success: "Đăng nhập thành công!"
     logout:
       successfully: "Logout thành công!"
+
+  index:
+    table:
+      order: "STT"
