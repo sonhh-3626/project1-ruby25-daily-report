@@ -1,4 +1,6 @@
 <%= form_with model: @user, url: admin_user_path(@user), local: true do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
   <div class="form-group">
     <%= f.label :name, t("users.form.name") %>
     <%= f.text_field :name, class: "form-control" %>

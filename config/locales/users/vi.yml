@@ -48,6 +48,7 @@ vi:
       delete_failed: "Thất bại loại người này ra khỏi bộ phận."
       password_length: "Mật khẩu phải có ít nhất %{count} ký tự."
       email_already_exists: "Email đã tồn tại."
+      one_manager_per_department: "Bộ phận này đã có một quản lý được gán."
     assign:
       success: "Thêm vào bộ phận thành công!"
       fail: "Thất bại! Chưa hoàn tất thêm vào bộ phận."
@@ -70,8 +71,8 @@ vi:
     unactive:
       success: "Hủy kích hoạt người dùng thành công!"
       fail: "Hủy kích hoạt người dùng thất bại. Vui lòng thử lại."
-    active: "Trạng thái hoạt động"
-    inactive: "Trạng thái không hoạt động"
+    active: "Đang hoạt động"
+    inactive: "Không hoạt động"
     import:
       success: "Nhập người dùng thành công"
       failed: "Nhập người dùng thất bại"

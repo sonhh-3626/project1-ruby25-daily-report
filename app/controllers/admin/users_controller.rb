@@ -37,7 +37,6 @@ class Admin::UsersController < ApplicationController
       flash[:success] = t "users.edit.updated_successfully"
       redirect_to admin_users_path
     else
-      flash[:danger] = t "users.errors.not_found"
       render :edit, status: :unprocessable_entity
     end
   end

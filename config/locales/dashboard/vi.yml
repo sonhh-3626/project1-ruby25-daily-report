@@ -9,7 +9,7 @@ vi:
     admin:
       departments: "Số bộ phận"
       managers: "Số quản lý"
-      total_users: "Tổng số người dùng"
+      total_users: "Tổng số nhân viên"
     manager:
       department_info: "Thông tin bộ phận"
       department_name: "Tên bộ phận"

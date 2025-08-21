@@ -40,6 +40,8 @@ class User < ApplicationRecord
   delegate :manager, to: :department, allow_nil: true
   delegate :name, to: :manager, prefix: true, allow_nil: true
 
+  validate :one_manager_per_department, if: :manager?
+
   USER_PARAMS = %w(name email role department_id active).freeze
   USER_PARAMS_WITH_PW = USER_PARAMS + %w(password).freeze
 
@@ -95,5 +97,15 @@ class User < ApplicationRecord
 
   def forget
     update_attribute :remember_digest, nil
+  end
+
+  private
+
+  def one_manager_per_department
+    return if department_id.blank?
+
+    if User.where(department_id:, role: :manager).where.not(id:).exists?
+      errors.add(:role, I18n.t("users.errors.one_manager_per_department"))
+    end
   end
 end

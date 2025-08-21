@@ -28,11 +28,4 @@ module Admin::UsersHelper
         end
     end
   end
-
-  def active_options_for_select
-    [
-      [t("users.active"), true],
-      [t("users.inactive"), false]
-    ]
-  end
 end

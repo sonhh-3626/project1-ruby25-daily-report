@@ -9,7 +9,7 @@ en:
       system_info: "System Information"
       departments: "Departments"
       managers: "Managers"
-      total_users: "Total Users"
+      total_users: "Total Employees"
     manager:
       department_info: "Department Information"
       department_name: "Department Name"

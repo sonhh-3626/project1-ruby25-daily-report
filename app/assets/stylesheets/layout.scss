@@ -299,3 +299,13 @@
  border-color: $blue-light !important;
  box-shadow: 0 0 0 0.25rem $gray-dark !important;
 }
+
+.badge-success {
+  background-color: $green-light;
+  color: $white;
+}
+
+.badge-secondary {
+  background-color: $gray-dark;
+  color: $white;
+}
