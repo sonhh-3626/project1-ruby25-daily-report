@@ -48,6 +48,7 @@ en:
       delete_failed: "Failed to remove this user from the department."
       password_length: "Please enter a password with sufficient %{count} length."
       email_already_exists: "Email already exists."
+      one_manager_per_department: "This department already has a manager assigned."
     assign:
       success: "Successfully added to the department!"
       fail: "Failed! Could not complete the assignment to the department."
