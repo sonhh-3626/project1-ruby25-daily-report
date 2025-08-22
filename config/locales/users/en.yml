@@ -21,6 +21,11 @@ en:
       show: "Show"
       edit: "Edit"
       no_users: "No users available."
+      search_btn: "Search"
+      reset_btn: "Reset"
+      all_status: "All Status"
+      active_status: "Active"
+      inactive_status: "Inactive"
     show:
       title: "User information"
       back: "Back to list"

@@ -1,4 +1,5 @@
 <tr>
+  <td><%= pagy.from + local_assigns[:daily_report_counter] %></td>
   <td><%= daily_report.owner.name %></td>
   <td><%= l(daily_report.created_at, format: :long) %></td>
   <td><%= l(daily_report.report_date, format: :long) %></td>

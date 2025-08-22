@@ -58,8 +58,12 @@ module NavigationHelper
         roles: %w(admin)
       },
       {
-        label: "departments",
-        path: manager_departments_path,
+        label: "my_department",
+        path: (
+          if current_user&.department
+            manager_department_path(current_user.department)
+          end
+        ),
         icon: "home",
         roles: %w(manager)
       },
@@ -68,12 +72,6 @@ module NavigationHelper
         path: admin_users_path,
         icon: "users",
         roles: %w(admin)
-      },
-      {
-        label: "users",
-        path: manager_users_path,
-        icon: "users",
-        roles: %w(manager)
       },
       {
         label: "reports",

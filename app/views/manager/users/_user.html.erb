@@ -1,14 +1,12 @@
 <tr>
+  <td><%= pagy.from + local_assigns[:user_counter] %></td>
   <td><%= user.name %></td>
   <td><%= user.email %></td>
   <td>
-    <% if user.manager? %>
-      <%= t "users.roles.manager" %>
-    <% else %>
-      <%= t "users.roles.user" %>
-    <% end %>
+    <span class="badge <%= user.active? ? 'badge-success' : 'badge-secondary' %>">
+      <%= user.active? ? t("users.index.active_status") : t("users.index.inactive_status") %>
+    </span>
   </td>
-  <td><%= user.department_name if user.department.present? %></td>
   <td>
     <%= user_action_buttons user %>
   </td>

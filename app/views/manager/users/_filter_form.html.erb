@@ -1,7 +1,0 @@
-<div class="row mb-6 align-items-end">
-  <div class="col-md-8">
-    <%= form_with url: manager_users_path, method: :get, local: true do |f| %>
-      <%= f.text_field :email, value: params[:email], placeholder: t("users.index.search_placeholder"), class: "form-control" %>
-    <% end %>
-  </div>
-</div>

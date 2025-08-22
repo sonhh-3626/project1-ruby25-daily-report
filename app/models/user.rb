@@ -46,15 +46,28 @@ class User < ApplicationRecord
   USER_PARAMS_WITH_PW = USER_PARAMS + %w(password).freeze
 
   scope :not_admin, ->{where.not(role: :admin)}
+  scope :not_manager, ->{where.not(role: :manager)}
+  scope :active, ->{where(active: true)}
+  scope :inactive, ->{where(active: false)}
+  scope :filter_by_active_status, lambda {|status|
+    case status
+    when "active"
+      active
+    when "inactive"
+      inactive
+    else
+      all
+    end
+  }
   scope :filter_by_role, ->(role){where(role:) if role.present?}
   scope :filter_by_department, lambda {|department_id|
     where(department_id:) if department_id.present?
   }
   scope :filter_by_email, lambda {|email|
-    where("email LIKE ?", "%#{email}%") if email.present?
+    email.present? ? where("email LIKE ?", "%#{email}%") : all
   }
   scope :managed_by, lambda {|manager|
-    manager.present? && where(department_id: manager.department_id)
+    manager.present? && where(department_id: manager.department_id, role: :user)
   }
   scope :unassigned_users, ->{where(department_id: nil, role: :user)}
   scope :get_staff_members, lambda {|manager|

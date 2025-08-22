@@ -1,0 +1,14 @@
+<div class="row mb-6 align-items-end">
+  <%= form_with url: manager_department_path(current_user.department), method: :get, local: true do |f| %>
+    <div class="col-md-4">
+      <%= f.text_field :email, value: params[:email], placeholder: t("users.index.search_placeholder"), class: "form-control" %>
+    </div>
+    <div class="col-md-4">
+      <%= f.select :active_status, active_status_options(params[:active_status]), {}, {class: "form-control"} %>
+    </div>
+    <div class="col-md-4">
+      <%= f.submit t("users.index.search_btn"), class: "btn btn-primary" %>
+      <%= link_to t("users.index.reset_btn"), manager_department_path(current_user.department), class: "btn btn-secondary" %>
+    </div>
+  <% end %>
+</div>

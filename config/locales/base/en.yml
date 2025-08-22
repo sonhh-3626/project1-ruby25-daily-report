@@ -24,6 +24,8 @@ en:
     dashboard: "Dashboard"
     help: "Help"
     departments: "Departments"
+    my_department: "My Department"
+    reports: "Reports"
 
   errors_forms:
     messages:

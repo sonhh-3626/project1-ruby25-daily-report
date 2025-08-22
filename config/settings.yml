@@ -9,6 +9,7 @@ daily_report_status:
   commented: 2
 
 ITEMS_PER_PAGE_10: 10
+ITEMS_PER_PAGE_5: 5
 MIN_LENGTH_DESCRIPTION_10: 10
 
 FILTER_ROLE:
@@ -28,3 +29,8 @@ MAILER_HOST: "localhost"
 MAILER_PORT: 3000
 
 RANDOM_PW_LENGTH: 6
+
+active_status:
+  - all
+  - active
+  - inactive

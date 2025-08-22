@@ -21,6 +21,11 @@ vi:
       show: "Xem"
       edit: "Sửa"
       no_users: "Không có người dùng nào khả dụng."
+      search_btn: "Tìm kiếm"
+      reset_btn: "Đặt lại"
+      all_status: "Tất cả "
+      active_status: "Đang hoạt động"
+      inactive_status: "Không hoạt động"
     show:
       title: "Thông tin người dùng"
       back: "Quay lại danh sách"
