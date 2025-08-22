@@ -40,7 +40,8 @@ en:
       password_placeholder: "Password"
       remember_me: "Remember me"
       submit_btn: "Log in"
-      invalid: "Email hoặc mật khẩu không chính xác!"
+      invalid: "Invalid email/password combination!"
+      inactive_account: "Your account is not active. Please contact the administrator."
       success: "Login successfully!"
     logout:
       successfully: "Logout successfully!"

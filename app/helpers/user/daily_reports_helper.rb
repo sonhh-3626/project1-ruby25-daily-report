@@ -1,12 +1,12 @@
 module User::DailyReportsHelper
   def status_badge_class status
     case status.to_s
-    when :read
-      "bg-success"
-    when :pending
-      "bg-danger"
+    when "read"
+      "bg-info"
+    when "pending"
+      "bg-warning"
     else
-      "bg-secondary"
+      "bg-success"
     end
   end
 
