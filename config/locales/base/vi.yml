@@ -42,6 +42,7 @@ vi:
       remember_me: "Ghi nhớ đăng nhập"
       submit_btn: "Đăng nhập"
       invalid: "Email hoặc mật khẩu không chính xác!"
+      inactive_account: "Tài khoản của bạn chưa được kích hoạt. Vui lòng liên hệ quản trị viên."
       success: "Đăng nhập thành công!"
     logout:
       successfully: "Logout thành công!"

@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   layout "authentication", only: %i(new create)
-  before_action :find_user_by_email, only: :create
+  before_action :find_user_by_email, :check_user_active, only: :create
 
   def new; end
 
@@ -43,6 +43,18 @@ class SessionsController < ApplicationController
     log_in @user
     redirect_to session[:forwarding_url] || root_path
     flash[:success] = t "session.login.success"
+  end
+
+  def check_user_active
+    return if @user.active?
+
+    flash.now[:danger] = t "session.login.inactive_account"
+    render :new, status: :unprocessable_entity
+  end
+
+  def handle_inactive_user
+    flash.now[:danger] = t "session.login.inactive_account"
+    render :new, status: :unprocessable_entity
   end
 
   def handle_invalid_login
