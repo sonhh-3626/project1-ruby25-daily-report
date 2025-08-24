@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: { sessions: "sessions" }
   scope "(:locale)", locale: /en|vi/ do
     root "static_pages#help"
-    get "/login", to: "sessions#new"
-    post "/login", to: "sessions#create"
-    delete "/logout", to: "sessions#destroy"
     resources :departments
     namespace :admin do
       get "dashboard/show", to: "dashboard#show"

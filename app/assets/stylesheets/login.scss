@@ -1,68 +1,9 @@
 @import "variables";
 
-.login-wrapper {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
-}
-
-.login-box {
-  background: $gray-light;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px $light-gray;
-  max-width: 400px;
-  padding: 40px 30px;
-  text-align: center;
-  width: 100%;
-
-  h1 {
-    color: $black-light;
-    font-size: 26px;
-    margin-bottom: 30px;
-  }
-}
-
-.login-form .form-group {
-  margin-bottom: 20px;
-  text-align: left;
-}
-
-.form-input {
-  background-color: $gray-medium-light;
-  border: 1px solid $border-bottom-color;
-  border-radius: 8px;
-  font-size: 16px;
-  padding: 12px 15px;
-  transition: border 0.3s ease;
-  width: 100%;
-
-  &:focus {
-    background-color: $gray-light;
-    border-color: $blue-light;
-    outline: none;
-  }
-}
-
-.checkbox-group {
-  align-items: center;
-  display: flex;
-  font-size: 14px;
-  gap: 10px;
-}
-
-.btn-login {
-  background-color: $blue-light;
-  border: none;
-  border-radius: 8px;
-  color: $white;
-  cursor: pointer;
-  font-size: 16px;
-  padding: 12px;
-  transition: 0.3s ease;
-  width: 100%;
-
-  &:hover {
-    background-color: $blue-light;
-  }
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
 }

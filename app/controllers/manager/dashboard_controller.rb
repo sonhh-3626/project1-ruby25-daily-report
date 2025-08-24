@@ -1,5 +1,5 @@
 class Manager::DashboardController < ApplicationController
-  before_action :logged_in_user, :manager_user
+  before_action :manager_user
 
   def show
     @department = current_user.department

@@ -1,5 +1,5 @@
 class Manager::UsersController < ApplicationController
-  before_action :logged_in_user, :manager_user
+  before_action :manager_user
   before_action :find_user, only: %i(show destroy)
   before_action :get_unassigned_users, only: %i(new create)
 
