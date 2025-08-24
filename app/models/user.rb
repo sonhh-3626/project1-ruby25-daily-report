@@ -35,6 +35,7 @@ class User < ApplicationRecord
   validate :one_manager_per_department, if: :manager?
 
   USER_PARAMS = %w(name email role department_id active).freeze
+  USER_PARAMS_WITH_PW = (USER_PARAMS + %w(password)).freeze
 
   scope :not_admin, ->{where.not(role: :admin)}
   scope :not_manager, ->{where.not(role: :manager)}

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { sessions: "sessions" }
+  devise_for :users, controllers: { sessions: "sessions", passwords: "passwords" }
   scope "(:locale)", locale: /en|vi/ do
     root "static_pages#help"
     resources :departments
