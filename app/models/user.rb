@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  attr_accessor :remember_token
+  devise :database_authenticatable, :recoverable,
+         :rememberable, :validatable
 
   belongs_to :department, optional: true
   has_many :sent_reports,
@@ -23,17 +24,6 @@ class User < ApplicationRecord
               case_sensitive: false,
               message: I18n.t("users.errors.email_already_exists")
             }
-
-  validates :password,
-            presence: true,
-            length:   {
-              minimum: Settings.MIN_LENGTH_PASSWORD,
-              message: I18n.t("users.errors.password_length",
-                              count: Settings.MIN_LENGTH_PASSWORD)
-            },
-            allow_nil: true
-
-  has_secure_password
 
   enum role: Settings.user_role.to_h
   delegate :name, to: :department, prefix: true
@@ -76,40 +66,14 @@ class User < ApplicationRecord
   scope :manager_count, ->{where(role: :manager).count}
   scope :user_count, ->{where(role: :user).count}
 
-  class << self
-    def digest string
-      cost = if ActiveModel::SecurePassword.min_cost
-               BCrypt::Engine::MIN_COST
-             else
-               BCrypt::Engine.cost
-             end
-      BCrypt::Password.create string, cost:
-    end
-
-    def new_token
-      SecureRandom.urlsafe_base64
-    end
+  # gem devise
+  def active_for_authentication?
+    super && active?
   end
 
-  def remember
-    self.remember_token = User.new_token
-    update_attribute :remember_digest, User.digest(remember_token)
-    remember_digest
-  end
-
-  def session_token
-    remember_digest || remember
-  end
-
-  def authenticated? attribute, token
-    digest = send("#{attribute}_digest")
-    return false if digest.nil?
-
-    BCrypt::Password.new(digest).is_password? token
-  end
-
-  def forget
-    update_attribute :remember_digest, nil
+  # gem devise
+  def inactive_message
+    active? ? super : :inactive_account
   end
 
   private

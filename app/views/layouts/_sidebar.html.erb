@@ -9,7 +9,7 @@
     <% active_class = current_page?(item[:path]) ? "active" : "" %>
 
     <% if item[:label] == t("nav_items.logout") %>
-      <%= link_to logout_path, data: { "turbo-method": :delete }, class: "nav-item" do %>
+      <%= link_to destroy_user_session_path, data: { "turbo-method": :delete }, class: "nav-item" do %>
         <span class="nav-icon"><i class="fas fa-<%= item[:icon] %>"></i></span>
         <span class="nav-text"><%= item[:label] %></span>
       <% end %>

@@ -51,12 +51,14 @@ gem "bootsnap", require: false
 gem "bcrypt", "3.1.18"
 gem "bootstrap-sass", "3.4.1"
 gem "config"
+gem "devise", "~> 4.9"
 gem "dotenv-rails"
 gem "i18n-js", "<= 3.9.2"
 gem "jquery-rails"
 gem "pagy"
 gem "rails-i18n"
 gem "simple_calendar"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html
   gem "debug", platforms: %i(mri mingw x64_mingw)
@@ -79,6 +81,13 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html]
   gem "capybara"
+  gem "database_cleaner-active_record"
+  gem "factory_bot_rails"
+  gem "rails-controller-testing"
+  gem "rspec-core"
+  gem "rspec-rails"
   gem "selenium-webdriver"
+  gem "simplecov", require: false
+  gem "simplecov-rcov", require: false
   gem "webdrivers"
 end

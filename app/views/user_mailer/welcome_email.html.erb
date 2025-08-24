@@ -10,6 +10,6 @@
   <li><strong><%= t "users.mailers.welcome_email.password" %>:</strong> <%= @password %></li>
 </ul>
 
-<p><%= t "users.mailers.welcome_email.log_in_here" %> <%= link_to t("users.mailers.welcome_email.log_in_link"), login_url %></p>
+<p><%= t "users.mailers.welcome_email.log_in_here" %> <%= link_to t("users.mailers.welcome_email.log_in_link"), new_user_session_url %></p>
 
 <p><%= t "users.mailers.welcome_email.thanks_for_joining" %></p>

@@ -3,7 +3,7 @@
   <td><%= user.name %></td>
   <td><%= user.email %></td>
   <td>
-    <span class="badge <%= user.active? ? 'badge-success' : 'badge-secondary' %>">
+    <span class="badge <%= user.active? ? "badge-success" : "badge-secondary" %>">
       <%= user.active? ? t("users.index.active_status") : t("users.index.inactive_status") %>
     </span>
   </td>

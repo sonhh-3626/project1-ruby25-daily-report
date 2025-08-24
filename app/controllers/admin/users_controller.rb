@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-  before_action :logged_in_user, :admin_user
+  before_action :admin_user
   before_action :filter_users, only: :index
   before_action :find_user, only: %i(edit update show destroy)
 
@@ -12,6 +12,7 @@ class Admin::UsersController < ApplicationController
   def create
     @user = User.new user_params_with_password
     if @user.save
+      @user.department&.update(manager_id: @user.id) if @user.manager?
       @generated_password = params.dig :user, :password
       UserMailer.welcome_email(@user, @generated_password).deliver_now
       flash[:success] = t "users.create.success"
@@ -33,8 +34,12 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
+    old_department_id = @user.department_id
+    old_role = @user.role
+
     if @user.update user_params
-      flash[:success] = t "users.edit.updated_successfully"
+      update_department_manager(old_department_id, old_role)
+      flash[:success] = t("users.edit.updated_successfully")
       redirect_to admin_users_path
     else
       render :edit, status: :unprocessable_entity
@@ -73,5 +78,24 @@ class Admin::UsersController < ApplicationController
                  .filter_by_email(params[:email])
                  .filter_by_role(params[:role])
                  .filter_by_department params[:department_id]
+  end
+
+  def update_department_manager old_department_id, old_role
+    remove_old_manager old_department_id, old_role
+    assign_new_manager
+  end
+
+  def remove_old_manager old_department_id, old_role
+    return unless old_role == Settings.ROLE_MANAGER &&
+                  old_department_id.present? &&
+                  (old_department_id != @user.department_id || @user.user?)
+
+    Department.find_by(id: old_department_id)&.update(manager_id: nil)
+  end
+
+  def assign_new_manager
+    return unless @user.manager? && @user.department_id.present?
+
+    @user.department&.update(manager_id: @user.id)
   end
 end

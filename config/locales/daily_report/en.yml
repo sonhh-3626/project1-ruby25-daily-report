@@ -15,7 +15,7 @@ en:
       failure: "Failed to update report."
     delete:
       success: "Report deleted successfully."
-      forbidden_status: "You can only delete reports with status 'pending'."
+      forbidden_status: "You can only delete reports with status pending."
     index:
       title: "Daily Report List"
       show: "Show"

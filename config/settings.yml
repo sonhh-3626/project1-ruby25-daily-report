@@ -34,3 +34,8 @@ active_status:
   - all
   - active
   - inactive
+<<<<<<< HEAD
+=======
+
+ROLE_MANAGER: "manager"
+>>>>>>> 02b2c14 (Đăng nhập/Đăng xuất - gem devise)

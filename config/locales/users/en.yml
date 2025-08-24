@@ -67,7 +67,7 @@ en:
       choose_department: "Choose department..."
       department: "Department"
       select_user: "Select user"
-    create":
+    create:
       success: "User successfully created!"
       fail: "Failed to create user. Please try again."
     delete:
