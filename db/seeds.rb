@@ -16,7 +16,8 @@ User.create!(
   name: "Admin 1",
   email: "admin@gmail.com",
   role: :admin,
-  password: "123456"
+  password: "123456",
+  active: true
 )
 
 5.times do |i|
