@@ -1,12 +1,7 @@
 class Manager::UsersController < ApplicationController
   before_action :logged_in_user, :manager_user
-  before_action :filter_users, only: :index
   before_action :find_user, only: %i(show destroy)
   before_action :get_unassigned_users, only: %i(new create)
-
-  def index
-    @pagy, @users = pagy @users, limit: Settings.ITEMS_PER_PAGE_10
-  end
 
   def new; end
 
@@ -16,7 +11,7 @@ class Manager::UsersController < ApplicationController
     if user && department
       user.update(department:)
       flash[:success] = t "users.assign.success"
-      redirect_to manager_users_path
+      redirect_to manager_department_path(current_user.department)
     else
       flash[:danger] = t "users.assign.fail"
       redirect_to new_manager_user_path
@@ -31,7 +26,7 @@ class Manager::UsersController < ApplicationController
     else
       flash[:danger] = t "users.error.delete_failed"
     end
-    redirect_to manager_users_url, status: :see_other
+    redirect_to manager_department_path(current_user.department)
   end
 
   private
@@ -48,22 +43,11 @@ class Manager::UsersController < ApplicationController
     redirect_to admin_users_path, status: :see_other
   end
 
-  def filter_users
-    @users = User.managed_by(current_user)
-                 .filter_by_role(:user)
-                 .filter_by_email(params[:email])
-                 .filter_by_department params[:department_id]
-    return if @users.present?
-
-    flash[:warning] = t "users.index.table.no_result"
-    redirect_to manager_users_path, status: :see_other
-  end
-
   def get_unassigned_users
     @available_users = User.unassigned_users
     return if @available_users.present?
 
     flash[:warning] = t "users.new.no_user_for_assign"
-    redirect_to manager_users_path, status: :see_other
+    redirect_to manager_department_path(current_user.department)
   end
 end

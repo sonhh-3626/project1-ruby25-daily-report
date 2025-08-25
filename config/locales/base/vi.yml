@@ -21,9 +21,12 @@ vi:
     content: "Đây là trang trợ giúp"
 
   nav_items:
-    dashboard: "Dashboard"
+    dashboard: "Bảng điều khiển"
     help: "Trợ giúp"
     departments: "Danh sách bộ phận"
+    my_department: "Bộ phận của tôi"
+    reports: "Danh sách báo cáo"
+    logout: "Đăng xuất"
 
   errors_forms:
     messages:

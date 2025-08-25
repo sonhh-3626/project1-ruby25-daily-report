@@ -5,19 +5,18 @@
     </td>
   </tr>
 <% else %>
-  <table class="table table-striped">
+  <table class="table table-bordered table-hover">
     <thead>
       <tr>
+        <th><%= t "index.table.order" %></th>
         <th><%= t "users.index.table.name" %></th>
         <th><%= t "users.index.table.email" %></th>
-        <th><%= t "users.index.table.role" %></th>
-        <th><%= t "users.index.table.active" %></th>
-        <th><%= t "users.index.table.department" %></th>
+        <th><%= t "users.index.table.active_status" %></th>
         <th><%= t "users.index.table.actions" %></th>
       </tr>
     </thead>
     <tbody>
-      <%= render @users %>
+      <%= render partial: "manager/users/user", collection: @users, as: :user, locals: {pagy: @pagy} %>
     </tbody>
   </table>
 

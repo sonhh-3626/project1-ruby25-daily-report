@@ -35,6 +35,7 @@ vi:
       updated_at: "Ngày cập nhật"
       no_description: "Không có"
       back: "Quay lại danh sách"
+      active_users_count: "Số lượng nhân viên hoạt động"
     destroy:
       success: "Xóa bộ phận thành công"
       fail: "Xóa bộ phận thất bại"

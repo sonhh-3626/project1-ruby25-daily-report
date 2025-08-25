@@ -9,6 +9,6 @@
     <p><strong><%= t "users.show.created_at" %>:</strong> <%= l(@user.created_at, format: :long) %></p>
     <p><strong><%= t "users.show.updated_at" %>:</strong> <%= l(@user.updated_at, format: :long) %></p>
 
-    <%= link_to t("users.show.back"), manager_users_path, class: "btn btn-secondary ms-2" %>
+    <%= link_to t("users.show.back"), manager_department_path(current_user.department), class: "btn btn-secondary ms-2" %>
   </div>
 </div>

@@ -35,6 +35,7 @@ en:
       updated_at: "Updated At"
       no_description: "None"
       back: "Back to list"
+      active_users_count: "Active Employees Number"
     destroy:
       success: "Department deleted successfully."
       fail: "Failed to delete department."

@@ -5,6 +5,7 @@
 <table class="table table-bordered table-hover">
   <thead class="table-dark">
     <tr>
+      <th><%= t "index.table.order" %></th>
       <th><%= t "daily_report.index.staff" %></th>
       <th><%= t "daily_report.index.created_at" %></th>
       <th><%= t "daily_report.index.report_date" %></th>
@@ -14,7 +15,7 @@
     </tr>
   </thead>
   <tbody>
-    <%= render @daily_reports %>
+    <%= render partial: "daily_report", collection: @daily_reports, as: :daily_report, locals: {pagy: @pagy} %>
   </tbody>
 </table>
 

@@ -1,13 +1,14 @@
 class Manager::DepartmentsController < ApplicationController
   before_action :logged_in_user, :manager_user
-  before_action :load_department, only: :show
-  before_action :fitler_departments, only: :index
+  before_action :load_department, :filter_users, only: :show
 
-  def index
-    @pagy, @departments = pagy @departments, items: Settings.ITEMS_PER_PAGE_10
+  def show
+    @department = current_user.department
+    @active_users_count = @department.users.active
+                                     .not_manager
+                                     .count
+    @pagy, @users = pagy @users, limit: Settings.ITEMS_PER_PAGE_5
   end
-
-  def show; end
 
   private
 
@@ -19,13 +20,14 @@ class Manager::DepartmentsController < ApplicationController
     redirect_to manager_departments_path, status: :see_other
   end
 
-  def fitler_departments
-    @departments = Department.with_department_id(current_user.department_id)
-                             .search_by_name(params[:query])
-                             .order_by_latest
-    return if @departments.present?
+  def filter_users
+    @users = User.managed_by(current_user)
+                 .filter_by_active_status(active_status_param)
+                 .filter_by_email params[:email]
+  end
 
-    flash[:warning] = t "departments.index.table.no_result"
-    redirect_to manager_departments_path, status: :see_other
+  def active_status_param
+    params[:active_status].presence ||
+      Settings.active_status[1]
   end
 end

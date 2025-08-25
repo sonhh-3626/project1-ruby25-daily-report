@@ -1,8 +1,9 @@
-<h1 class="text-center"><%= t "departments.show.title" %></h1>
+<h2 class="text-center"><%= t "departments.show.title" %></h2>
 
 <div class="card">
   <div class="card-body">
     <h5 class="card-title"><%= @department.name %></h5>
+    <p class="card-text"><strong><%= t "departments.show.active_users_count" %>:</strong> <%= @active_users_count %></p>
     <p class="card-text"><strong><%= t "departments.show.description" %>:</strong> <%= @department.description.presence || t("departments.show.no_description") %></p>
     <p class="card-text"><strong><%= t "departments.show.created_at" %>:</strong> <%= l(@department.created_at, format: :long) %></p>
     <p class="card-text"><strong><%= t "departments.show.updated_at" %>:</strong> <%= l(@department.updated_at, format: :long) %></p>
@@ -11,4 +12,7 @@
 
 <br>
 
-<%= link_to t("departments.show.back"), manager_departments_path, class: "btn btn-secondary" %>
+<h2 class="text-center"><%= t("users.index.title") %></h2>
+<%= render "add_new_member_btn" %>
+<%= render "filter_form" %>
+<%= render "table_content_users" %>
