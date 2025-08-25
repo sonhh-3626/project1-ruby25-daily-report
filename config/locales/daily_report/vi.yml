@@ -14,7 +14,7 @@ vi:
       failure: "Cập nhật báo cáo thất bại."
     delete:
       success: "Xóa báo cáo thành công."
-      forbidden_status: "Chỉ có thể xóa báo cáo khi trạng thái là 'pending'."
+      forbidden_status: "Chỉ có thể xóa báo cáo khi trạng thái là pending."
     index:
       show: "Xem"
       edit: "Sửa"

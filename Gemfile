@@ -51,13 +51,13 @@ gem "bootsnap", require: false
 gem "bcrypt", "3.1.18"
 gem "bootstrap-sass", "3.4.1"
 gem "config"
+gem "devise", "~> 4.9"
 gem "dotenv-rails"
 gem "i18n-js", "<= 3.9.2"
 gem "jquery-rails"
 gem "pagy"
 gem "rails-i18n"
 gem "simple_calendar"
-gem "devise", "~> 4.9"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html

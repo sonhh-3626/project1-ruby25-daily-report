@@ -19,6 +19,10 @@ vi:
         subject: "Hướng dẫn xác nhận"
       reset_password_instructions:
         subject: "Hướng dẫn đặt lại mật khẩu"
+        someone_requested_password_change: "Ai đó đã yêu cầu một liên kết để thay đổi mật khẩu của bạn. Bạn có thể thực hiện việc này thông qua liên kết bên dưới."
+        change_my_password: "Thay đổi mật khẩu của tôi"
+        ignore_email_if_not_requested: "Nếu bạn không yêu cầu điều này, vui lòng bỏ qua email này."
+        password_wont_change_until_accessed: "Mật khẩu của bạn sẽ không thay đổi cho đến khi bạn truy cập liên kết trên và tạo một mật khẩu mới."
       unlock_instructions:
         subject: "Hướng dẫn mở khóa"
       email_changed:
