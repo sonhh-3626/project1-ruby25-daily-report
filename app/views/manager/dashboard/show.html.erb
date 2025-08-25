@@ -26,7 +26,7 @@
               <strong><%= t("dashboard.manager.department_name") %>:</strong> <%= @department.name %>
             </li>
             <li class="list-group-item">
-              <strong><%= t("dashboard.manager.staff_count") %>:</strong> <%= @staff_count %>
+              <p class="card-text"><strong><%= t "departments.show.active_users_count" %>:</strong> <%= @active_users_count %></p>
             </li>
             <li class="list-group-item">
               <strong><%= t("dashboard.manager.pending_reports") %>:</strong> <%= @pending_reports_count %>
