@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
+  load_and_authorize_resource class: User
   before_action :admin_user
   before_action :filter_users, only: :index
-  before_action :find_user, only: %i(edit update show destroy)
 
   def new
     @generated_password = SecureRandom.alphanumeric Settings.RANDOM_PW_LENGTH
@@ -42,6 +42,7 @@ class Admin::UsersController < ApplicationController
       flash[:success] = t("users.edit.updated_successfully")
       redirect_to admin_users_path
     else
+      @departments = Department.all
       render :edit, status: :unprocessable_entity
     end
   end
@@ -63,14 +64,6 @@ class Admin::UsersController < ApplicationController
 
   def user_params_with_password
     params.require(:user).permit User::USER_PARAMS_WITH_PW
-  end
-
-  def find_user
-    @user = User.find_by id: params[:id]
-    return if @user
-
-    flash[:danger] = t "users.errors.not_found"
-    redirect_to admin_users_path, status: :see_other
   end
 
   def filter_users

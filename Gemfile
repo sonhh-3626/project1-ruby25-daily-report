@@ -50,6 +50,7 @@ gem "bootsnap", require: false
 
 gem "bcrypt", "3.1.18"
 gem "bootstrap-sass", "3.4.1"
+gem "cancancan"
 gem "config"
 gem "devise", "~> 4.9"
 gem "dotenv-rails"

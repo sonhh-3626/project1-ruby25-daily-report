@@ -1,6 +1,7 @@
 class Manager::DepartmentsController < ApplicationController
+  load_and_authorize_resource class: Department.name
   before_action :manager_user
-  before_action :load_department, :filter_users, only: :show
+  before_action :filter_users, only: :show
 
   def show
     @department = current_user.department
@@ -11,14 +12,6 @@ class Manager::DepartmentsController < ApplicationController
   end
 
   private
-
-  def load_department
-    @department = Department.find_by id: params[:id]
-    return if @department
-
-    flash[:danger] = t "departments.errors.not_found"
-    redirect_to manager_departments_path, status: :see_other
-  end
 
   def filter_users
     @users = User.managed_by(current_user)

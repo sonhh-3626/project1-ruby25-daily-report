@@ -84,3 +84,4 @@ en:
     back: "Back"
     edit: "Edit"
     no_data: "No data available"
+    record_not_found: "%{record_name} not found."

@@ -1,6 +1,6 @@
 class Manager::UsersController < ApplicationController
+  load_and_authorize_resource class: User.name
   before_action :manager_user
-  before_action :find_user, only: %i(show destroy)
   before_action :get_unassigned_users, only: %i(new create)
 
   def new; end
@@ -33,14 +33,6 @@ class Manager::UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit User::USER_PARAMS
-  end
-
-  def find_user
-    @user = User.find_by id: params[:id]
-    return if @user
-
-    flash[:danger] = t "users.errors.not_found"
-    redirect_to admin_users_path, status: :see_other
   end
 
   def get_unassigned_users
