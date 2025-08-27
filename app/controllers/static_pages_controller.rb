@@ -1,5 +1,11 @@
 class StaticPagesController < ApplicationController
-  before_action :logged_in_user
+  before_action :authenticate_user!
 
-  def help; end
+  def help
+    if current_user
+      redirect_to send("#{current_user.role}_dashboard_show_path")
+    else
+      redirect_to new_user_session_path
+    end
+  end
 end

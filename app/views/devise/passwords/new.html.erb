@@ -1,0 +1,14 @@
+<h1 class="text-center"><%= t("devise.passwords.new.forgot_password") %></h1>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <%= f.label :email, t("devise.sessions.new.email_address"), class: "form-label" %>
+  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control-lg" %>
+
+  <div class="mb-4">
+    <%= link_to t("devise.shared.links.sign_in"), new_session_path(resource_name) %>
+  </div>
+
+  <%= f.submit t("devise.passwords.new.send_me_reset_password_instructions"), class: "btn btn-primary btn-lg btn-block mb-4" %>
+<% end %>

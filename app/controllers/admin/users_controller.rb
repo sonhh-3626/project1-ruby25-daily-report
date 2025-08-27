@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-  before_action :logged_in_user, :admin_user
+  before_action :admin_user
   before_action :filter_users, only: :index
   before_action :find_user, only: %i(edit update show destroy)
 
@@ -86,7 +86,8 @@ class Admin::UsersController < ApplicationController
   end
 
   def remove_old_manager old_department_id, old_role
-    return unless old_role == :manager && old_department_id.present? &&
+    return unless old_role == Settings.ROLE_MANAGER &&
+                  old_department_id.present? &&
                   (old_department_id != @user.department_id || @user.user?)
 
     Department.find_by(id: old_department_id)&.update(manager_id: nil)

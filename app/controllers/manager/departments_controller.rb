@@ -1,5 +1,5 @@
 class Manager::DepartmentsController < ApplicationController
-  before_action :logged_in_user, :manager_user
+  before_action :manager_user
   before_action :load_department, :filter_users, only: :show
 
   def show

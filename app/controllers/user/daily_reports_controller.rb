@@ -1,5 +1,5 @@
 class User::DailyReportsController < ApplicationController
-  before_action :check_user_role, :logged_in_user
+  before_action :check_user_role
   before_action :belongs_department?, except: %i(index)
   before_action :set_daily_report, only: %i(show edit update destroy)
   before_action :filter_daily_reports, only: :index

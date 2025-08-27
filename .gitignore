@@ -32,6 +32,7 @@
 /config/database.yml
 config/credentials.yml.enc
 /test/*
+/coverage/
 
 config/settings.local.yml
 config/settings/*.local.yml

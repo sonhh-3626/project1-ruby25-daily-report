@@ -80,12 +80,6 @@ module NavigationHelper
         roles: %w(user)
       },
       {
-        label: "help",
-        path: root_path,
-        icon: "handshake-angle",
-        roles: %w(admin manager user)
-      },
-      {
         label: "logout",
         path: nil,
         icon: "sign-out",

@@ -1,5 +1,5 @@
 class Manager::DailyReportsController < ApplicationController
-  before_action :logged_in_user, :manager_user
+  before_action :manager_user
   before_action :set_daily_report, only: %i(edit update)
   before_action :set_staff_members, :filter_daily_reports, only: :index
 

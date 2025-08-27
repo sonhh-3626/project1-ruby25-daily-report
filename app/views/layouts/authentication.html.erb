@@ -6,16 +6,26 @@
   <%= csp_meta_tag %>
   <%= stylesheet_link_tag "application", media: "all" %>
   <%= stylesheet_link_tag "login", media: "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_importmap_tags %>
 </head>
 <body>
   <div class="container">
-    <% flash.each do |message_type, message| %>
-      <div class="alert alert-<%= message_type %>">
+    <% flash.each do |key, message| %>
+      <div class="alert <%= {notice: "alert-success", alert: "alert-danger", warning: "alert-warning", info: "alert-info"}[key.to_sym] || "alert-info" %>">
         <%= message %>
       </div>
     <% end %>
-    <%= yield %>
+
+    <section class="vh-100">
+      <div class="container" style="margin: 20% 20%;">
+        <div class="col-lg-5">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <%= debug(params) if Rails.env.development? %>
   </div>
 </body>
