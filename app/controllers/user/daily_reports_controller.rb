@@ -1,7 +1,7 @@
 class User::DailyReportsController < ApplicationController
+  load_and_authorize_resource class: DailyReport.name
   before_action :check_user_role
   before_action :belongs_department?, except: %i(index)
-  before_action :set_daily_report, only: %i(show edit update destroy)
   before_action :filter_daily_reports, only: :index
   before_action :check_status, only: :edit
 
@@ -58,14 +58,6 @@ class User::DailyReportsController < ApplicationController
 
   def daily_report_params
     params.require(:daily_report).permit DailyReport::DAILY_REPORT_PARAMS
-  end
-
-  def set_daily_report
-    @daily_report = DailyReport.find_by id: params[:id]
-    return if @daily_report
-
-    flash[:danger] = t "set_daily_report.errors.not_found"
-    redirect_to user_daily_reports_path, status: :see_other
   end
 
   def filter_daily_reports

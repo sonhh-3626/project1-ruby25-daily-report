@@ -84,3 +84,4 @@ vi:
     back: "Quay lại"
     edit: "Chỉnh sửa"
     no_data: "Không có dữ liệu"
+    record_not_found: "Không thấy %{record_name}."

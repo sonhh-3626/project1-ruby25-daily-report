@@ -1,6 +1,6 @@
 class Admin::DepartmentsController < ApplicationController
+  load_and_authorize_resource class: Department.name
   before_action :admin_user
-  before_action :load_department, only: %i(show edit update destroy)
   before_action :filter_departments, only: :index
   before_action :check_dependency_destroy_department, only: :destroy
 
@@ -48,14 +48,6 @@ class Admin::DepartmentsController < ApplicationController
 
   def department_params
     params.require(:department).permit Department::DEPARTMENT_PARAMS
-  end
-
-  def load_department
-    @department = Department.find_by id: params[:id]
-    return if @department
-
-    flash[:danger] = t "departments.errors.not_found"
-    redirect_to admin_departments_path, status: :see_other
   end
 
   def check_dependency_destroy_department

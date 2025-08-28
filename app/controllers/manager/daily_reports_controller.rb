@@ -1,6 +1,6 @@
 class Manager::DailyReportsController < ApplicationController
+  load_and_authorize_resource class: DailyReport.name
   before_action :manager_user
-  before_action :set_daily_report, only: %i(edit update)
   before_action :set_staff_members, :filter_daily_reports, only: :index
 
   def index
@@ -32,14 +32,6 @@ class Manager::DailyReportsController < ApplicationController
     dr_params[:status] = update_status new_notes, old_notes
     dr_params[:reviewed_at] = Time.current if dr_params[:status] != :pending
     dr_params
-  end
-
-  def set_daily_report
-    @daily_report = DailyReport.find_by id: params[:id]
-    return if @daily_report
-
-    flash[:alert] = t "daily_report.errors.not_found"
-    redirect_to manager_daily_reports_path, status: :see_other
   end
 
   def set_staff_members

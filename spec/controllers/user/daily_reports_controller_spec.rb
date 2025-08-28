@@ -126,12 +126,12 @@ RSpec.describe User::DailyReportsController, type: :controller do
 
   describe "GET #show" do
     before do
-      allow(DailyReport).to receive(:find_by).and_return(daily_report)
+      allow(DailyReport).to receive(:find).and_return(daily_report)
       get :show, params: { id: 1 }
     end
 
     it "finds the daily report" do
-      expect(DailyReport).to have_received(:find_by).with(id: "1")
+      expect(DailyReport).to have_received(:find).with("1")
     end
 
     it "assigns @daily_report" do
@@ -145,7 +145,7 @@ RSpec.describe User::DailyReportsController, type: :controller do
 
   describe "GET #edit" do
     before do
-      allow(DailyReport).to receive(:find_by).and_return(daily_report)
+      allow(DailyReport).to receive(:find).and_return(daily_report)
       allow(controller).to receive(:check_status)
     end
 
@@ -155,7 +155,7 @@ RSpec.describe User::DailyReportsController, type: :controller do
       end
 
       it "finds the daily report" do
-        expect(DailyReport).to have_received(:find_by).with(id: "1")
+        expect(DailyReport).to have_received(:find).with("1")
       end
 
       it "calls check_status" do
@@ -174,7 +174,7 @@ RSpec.describe User::DailyReportsController, type: :controller do
 
   describe "PATCH #update" do
     before do
-      allow(DailyReport).to receive(:find_by).and_return(daily_report)
+      allow(DailyReport).to receive(:find).and_return(daily_report)
       allow(daily_report).to receive(:update)
     end
 
@@ -221,7 +221,7 @@ RSpec.describe User::DailyReportsController, type: :controller do
 
   describe "DELETE #destroy" do
     before do
-      allow(DailyReport).to receive(:find_by).and_return(daily_report)
+      allow(DailyReport).to receive(:find).and_return(daily_report)
       allow(daily_report).to receive(:status_pending?)
       allow(daily_report).to receive(:destroy)
     end
@@ -276,26 +276,10 @@ RSpec.describe User::DailyReportsController, type: :controller do
   end
 
   describe "private methods" do
-    describe "#set_daily_report" do
-      context "when daily report not found" do
-        before do
-          allow(DailyReport).to receive(:find_by).and_return(nil)
-          get :show, params: { id: 999 }
-        end
-
-        it "sets danger flash message" do
-          expect(flash[:danger]).to be_present
-        end
-
-        it "redirects to index" do
-          expect(response).to redirect_to(user_daily_reports_path)
-        end
-      end
-    end
-
     describe "#belongs_department?" do
       context "when user has no department" do
         before do
+          allow(DailyReport).to receive(:find).and_return(daily_report)
           allow(user).to receive(:department_id).and_return(nil)
           allow(controller).to receive(:belongs_department?).and_call_original
           get :show, params: { id: 1 }
@@ -314,7 +298,7 @@ RSpec.describe User::DailyReportsController, type: :controller do
     describe "#check_status" do
       context "when daily report status is read" do
         before do
-          allow(DailyReport).to receive(:find_by).and_return(daily_report)
+          allow(DailyReport).to receive(:find).and_return(daily_report)
           allow(daily_report).to receive(:status_read?).and_return(true)
           allow(controller).to receive(:check_status).and_call_original
           get :edit, params: { id: 1 }

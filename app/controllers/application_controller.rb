@@ -5,6 +5,14 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :authenticate_user!
 
+  rescue_from CanCan::AccessDenied do
+    handle_access_denied
+  end
+
+  rescue_from ActiveRecord::RecordNotFound do
+    handle_record_not_found
+  end
+
   private
   def set_locale
     locale = params[:locale].to_s.strip.to_sym
@@ -19,25 +27,33 @@ class ApplicationController < ActionController::Base
     {locale: I18n.locale}
   end
 
-  def admin_user
-    return if current_user.admin?
-
-    flash[:danger] = t "users.errors.be_admin"
+  def handle_access_denied
+    flash[:warning] = t "users.errors.no_right"
     redirect_to root_url, status: :see_other
+  end
+
+  def handle_record_not_found
+    record_name = controller_name.singularize.humanize
+    flash[:warning] = t("common.record_not_found", record_name:)
+    redirect_to root_url, status: :see_other
+  end
+
+  def authorize_role role
+    return if current_user.send("#{role}?")
+
+    handle_access_denied
+  end
+
+  def admin_user
+    authorize_role :admin
   end
 
   def manager_user
-    return if current_user.manager?
-
-    flash[:danger] = t "users.errors.be_manager"
-    redirect_to root_url, status: :see_other
+    authorize_role :manager
   end
 
   def check_user_role
-    return if current_user&.user?
-
-    flash[:danger] = t "users.errors.be_user"
-    redirect_to root_url, status: :see_other
+    authorize_role :user
   end
 
   def after_sign_in_path_for resource
