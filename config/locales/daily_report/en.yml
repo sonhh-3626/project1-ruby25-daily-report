@@ -79,6 +79,8 @@ en:
       incomplete_reason: "Incomplete Reason"
       next_day_tasks: "Next Day's Planned Tasks"
       pending: "Pending"
+      commented: "Commented"
+      read: "Read"
     mail:
       subject: "Daily Report"
       cc: "Dear %{name},"

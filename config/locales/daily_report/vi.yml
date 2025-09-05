@@ -80,6 +80,8 @@ vi:
       incomplete_reason: "Lý do chưa hoàn thành"
       next_day_tasks: "Kế hoạch ngày tiếp theo"
       pending: "Đang đợi duyệt"
+      commented: "Được comment"
+      read: "Đã đọc"
     mail:
       subject: "Báo cáo công việc hàng ngày"
       cc: "Kính gửi: %{name},"

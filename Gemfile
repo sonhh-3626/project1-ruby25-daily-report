@@ -49,10 +49,10 @@ gem "bootsnap", require: false
 gem "image_processing", "~> 1.2"
 
 gem "active_storage_validations", "0.9.8"
-gem "axlsx_rails"
 gem "bcrypt", "3.1.18"
 gem "bootstrap-sass", "3.4.1"
 gem "cancancan"
+gem "caxlsx_rails"
 gem "config"
 gem "devise", "~> 4.9"
 gem "dotenv-rails"

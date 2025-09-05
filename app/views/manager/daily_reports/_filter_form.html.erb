@@ -1,24 +1,27 @@
 <%= search_form_for @q, url: manager_daily_reports_path, method: :get, local: true,
                     class: "row g-3 mb-4" do |f| %>
   <div class="col-md-2">
+    <i class="fa-solid fa-user"></i>
     <%= f.label :owner_id_eq, t("daily_report.index.member"), class: "form-label" %>
     <%= f.select :owner_id_eq,
       options_from_collection_for_select(@staff_members, :id, :name, @q.owner_id_eq),
       { include_blank: t("daily_report.index.all_staff") },
-      class: "form-select select2" %>
+      class: "form-control select2" %>
   </div>
 
   <div class="col-md-3">
+    <i class="fa-solid fa-calendar-days"></i>
     <%= f.label :report_date_eq, t("daily_report.index.report_date"), class: "form-label" %>
     <%= f.date_field :report_date_eq, class: "form-control" %>
   </div>
 
   <div class="col-md-2">
+    <i class="fa-solid fa-circle-check me-1"></i>
     <%= f.label :status_eq, t("daily_report.index.status"), class: "form-label" %>
     <%= f.select :status_eq,
       manager_daily_report_status_options,
       { include_blank: t("daily_report.index.all_status") },
-      class: "form-select" %>
+      class: "form-control" %>
   </div>
 
   <div class="col-md-3 d-flex align-items-end gap-2">

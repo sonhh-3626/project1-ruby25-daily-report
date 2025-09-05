@@ -18,6 +18,7 @@ vi:
         reset: "Đặt lại"
         active: "Đang hoạt động"
         inactive: "Không hoạt động"
+        search_email: "Tìm kiếm bởi email"
       add_new_member_btn: "Thêm thành viên mới"
       import_btn: "Nhập người dùng"
       show: "Xem"

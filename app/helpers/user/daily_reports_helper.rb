@@ -63,17 +63,14 @@ module User::DailyReportsHelper
   def daily_report_status_badge daily_report
     if daily_report.status_read?
       content_tag(:div, class: "alert alert-info") do
-        "#{content_tag(:i, '', class: 'fas fa-check')} "\
           "#{t('daily_report.show.read')}"
       end
     elsif daily_report.status_commented?
       content_tag(:div, class: "alert alert-success") do
-        "#{content_tag(:i, '', class: 'fas fa-pen')} "\
           "#{t('daily_report.show.commented')}"
       end
     else
       content_tag(:div, class: "alert alert-warning") do
-        "#{content_tag(:i, '', class: 'fas fa-exclamation-triangle')} "\
           "#{t('daily_report.show.pending')}"
       end
     end

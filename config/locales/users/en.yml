@@ -18,6 +18,7 @@ en:
         reset: "Reset"
         active: "Active"
         inactive: "Inactive"
+        search_email: "Search by email"
       add_new_member_btn: "Add new member"
       import_btn: "Import Users"
       show: "Show"

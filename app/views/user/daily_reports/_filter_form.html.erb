@@ -1,15 +1,17 @@
 <%= search_form_for @q, url: user_daily_reports_path, method: :get, local: true, class: "row g-3 mb-3" do |f| %>
   <div class="col-md-4">
+    <i class="fa-solid fa-calendar-days"></i>
     <%= f.label :report_date_eq, t("daily_report.index.report_date"), class: "form-label" %>
     <%= f.date_field :report_date_eq, value: params.dig(:q, :report_date_eq), class: "form-control" %>
   </div>
 
   <div class="col-md-4">
+    <i class="fa-solid fa-circle-check me-1"></i>
     <%= f.label :status_eq, t("daily_report.index.status"), class: "form-label" %>
     <%= f.select :status_eq,
       daily_report_status_options,
       include_blank: t("daily_report.index.all_status"),
-      class: "form-select"
+      class: "form-control"
     %>
   </div>
 
