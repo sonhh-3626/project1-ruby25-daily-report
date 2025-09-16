@@ -5,29 +5,72 @@ services:
     image: mysql:8.0
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: rails_tutorial_development
+      # MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      # MYSQL_DATABASE: rails_tutorial_development
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_CHARSET: utf8mb4
       MYSQL_COLLATION: utf8mb4_unicode_ci
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - db_data:/var/lib/mysql
     command: --default-authentication-plugin=mysql_native_password
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   web:
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails server -b 0.0.0.0 -p 3000"
+    command: bash -c "
+      rm -f tmp/pids/server.pid &&
+      mkdir -p tmp/pids &&
+      rails db:create &&
+      rails db:migrate &&
+      rails db:seed &&
+      bundle exec puma -C config/puma.rb"
     volumes:
       - .:/app
+      - /app/tmp
+      - /app/log
     ports:
       - "3000:3000"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     environment:
-      - RAILS_ENV=development
+      - RAILS_ENV=production
+      - DATABASE_HOST=db
+      - DATABASE_NAME=rails_project1_production
+      - DATABASE_USERNAME=root
+      - DATABASE_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - REDIS_URL=${REDIS_URL}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_REGION=${AWS_REGION}
+      - S3_BUCKET_NAME=${S3_BUCKET_NAME}
+      - SECRET_KEY_BASE=${SECRET_KEY_BASE}
     stdin_open: true
     tty: true
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - /etc/letsencrypt:/etc/letsencrypt
+    depends_on:
+      - web
+    restart: unless-stopped
 
 volumes:
   db_data:

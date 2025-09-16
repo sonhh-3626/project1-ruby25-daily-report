@@ -41,3 +41,11 @@ pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 
 # Allow puma to be restarted by `bin/rails restart` command.
 plugin :tmp_restart
+
+# Use SSL/TLS
+#
+# The following lines are necessary only when using HTTPS.
+ssl_bind "0.0.0.0", "3000", {
+  key: File.expand_path("ssl/server.key", __dir__),
+  cert: File.expand_path("ssl/server.crt", __dir__)
+}

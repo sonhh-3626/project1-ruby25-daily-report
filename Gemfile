@@ -65,6 +65,7 @@ gem "ransack"
 gem "sidekiq"
 gem "simple_calendar"
 gem "whenever", require: false
+gem "aws-sdk-s3", require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html
